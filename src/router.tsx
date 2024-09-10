@@ -1,20 +1,16 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import App from "./components/App";
-import NotFound from "./NotFound";
+import NotFound from "./pages/NotFound";
 
 export const router = createBrowserRouter([
-  {
-    element: <App />,
-    path: "/",
-    children: [
-      {
-        path: "old-home",
-        element: <Navigate to="/" />,
-      },
-      {
-        path: "*",
-        element: <NotFound />,
-      },
-    ],
-  },
+    {
+        element: <App />,
+        path: "/",
+        children: [
+            {
+                path: "*",
+                element: <NotFound />,
+            },
+        ],
+    },
 ]);
