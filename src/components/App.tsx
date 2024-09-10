@@ -1,17 +1,16 @@
 import "../styles/App.css";
 import { Outlet } from "react-router-dom";
+import Footer from "./Footer";
 import Navbar from "./NavBar";
 
 function App() {
-    return (
-        <>
-        <Navbar/>
-            <h1>App</h1>
-            
-            <Outlet />
-
-        </>
-    );
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
