@@ -1,0 +1,15 @@
+footer {
+    color: #000000;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
