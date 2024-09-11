@@ -1,10 +1,10 @@
 import "../styles/Home.css";
-import CocktailCard from "../components/CocktailCard";
+import RandomCocktail from "../components/RandomCocktail";
 
 export function Home() {
   return (
     <main className="home-main">
-      <CocktailCard />
+      <RandomCocktail />
     </main>
   );
 }
