@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@400;900&display=swap');
+
 .home-main {
     background-image: url("../assets/cover.png");
     width: 100vw;
@@ -27,7 +29,8 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
     height: 2rem;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: 'Elsie Swash Caps', serif;
 }
 
 .img-card {
@@ -58,6 +61,7 @@
     font-weight: 400;
     text-align: center;
     width: 85%;
+    font-family: 'Elsie Swash Caps', serif;
 }
 
 .home-btn-card {

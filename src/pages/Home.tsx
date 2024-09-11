@@ -3,7 +3,7 @@ import '../styles/Home.css'
 export function Home() {
     return (
         <main className="home-main">
-            <button className='random-btn'>GET RANDOM DRINK</button>
+            <button className='random-btn'>Random Drink</button>
             <section className="card">
                 <img className='img-card' src="src\assets\test-img-drink.png" alt="drink" />
                 <aside className='aside-card'>
