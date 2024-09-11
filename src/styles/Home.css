@@ -24,31 +24,50 @@
 }
 
 .random-btn {
-    width: max-content;
-    padding: 0 10px;
     background-color: #ff975e;
+    color: black;
     border: none;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-        rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    height: 3rem;
-    font-size: 3rem;
-    font-family: 'Elsie Swash Caps', serif;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Elsie Swash Caps',
+        serif;
+    font-size: 2rem;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.random-btn:hover {
+    background-color: #e46c2b;
+    transform: translateY(-2px);
+}
+
+.random-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .see-more-btn {
     margin-bottom: 6rem;
     background-color: #ffc8ff;
     border: none;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 10px;
     border-radius: 10px;
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'Elsie Swash Caps',
         serif;
     cursor: pointer;
+}
+
+.see-more-btn:hover {
+    background-color: #f792f7;
+    transform: translateY(-2px);
+}
+
+.see-more-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .img-card {
