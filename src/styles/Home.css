@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@400;900&display=swap');
+
+.home-main {
+    background-image: url("../assets/cover.png");
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    width: 50%;
+    background-color: azure;
+    border-radius: 2px;
+    display: flex;
+}
+
+.random-btn {
+    width: max-content;
+    padding: 0 10px;
+    background-color: #ff975e;
+    border: none;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    height: 2rem;
+    font-size: 25px;
+    font-family: 'Elsie Swash Caps', serif;
+}
+
+.img-card {
+    flex: 1;
+    width: 50%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center;
+}
+
+.aside-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.star {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    align-self: flex-end;
+    width: 30px;
+}
+
+.drink-name {
+    font-size: 70px;
+    font-weight: 400;
+    text-align: center;
+    width: 85%;
+    font-family: 'Elsie Swash Caps', serif;
+}
+
+.home-btn-card {
+    margin-bottom: 1rem;
+    background-color: #ffc8ff;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    padding: 7px;
+    font-size: 15px;
+}
