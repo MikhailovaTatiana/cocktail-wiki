@@ -3,7 +3,7 @@ import "../styles/Footer.css";
 export function Footer() {
   return (
     <footer>
-      <p>Copyright @ Super Knights</p>
+      <p>© Super Knights</p>
     </footer>
   );
 }
