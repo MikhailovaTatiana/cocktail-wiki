@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/Home.css";
+import { useNavigate } from "react-router-dom";
 
 // api tag
 interface Cocktail {
@@ -11,6 +12,7 @@ interface Cocktail {
 const CocktailCard: React.FC = () => {
   const [cocktail, setCocktail] = useState<Cocktail | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const Navigate = useNavigate(); // direct to another page
 
   // Function to fetch a random cocktail
   const fetchCocktail = async () => {
@@ -45,7 +47,9 @@ const CocktailCard: React.FC = () => {
             <aside className="aside-card">
               <img className="star" src="src\assets\icons8-star-50.png" alt="star" />
               <h2 className="drink-name">{cocktail.strDrink}</h2>
-              <button className="see-more-btn">See more</button>
+              <button onClick={() => Navigate("/DrinkInfo")} className="see-more-btn">
+                See more
+              </button>
             </aside>
           </>
         ) : (
