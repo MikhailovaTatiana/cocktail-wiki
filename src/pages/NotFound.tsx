@@ -1,8 +1,11 @@
+import '../styles/NotFound.css'
+
 export function NotFound() {
   return (
-    <div>
-      <h1>404 - Not Found</h1>
-    </div>
+    <main className='error-main'>
+      <p className="code-404">Error - 404</p>
+      <p className='error-msg'>This pade is not found!</p>
+    </main>
   );
 }
 
