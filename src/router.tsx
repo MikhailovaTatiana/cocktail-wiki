@@ -4,7 +4,6 @@ import NotFound from "./pages/NotFound";
 import { Home } from "./pages/Home";
 import { Search } from "./pages/Search";
 
-
 export const router = createBrowserRouter([
     {
         element: <App />,

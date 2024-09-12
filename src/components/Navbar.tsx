@@ -30,16 +30,16 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="navbar">
-      <p>The CocktailDB</p>
+      <Link to="/" className="navbar-brand">The CocktailDB</Link>
       <ul className="navbar-list">
         <li>
-          <Link to="/favorites" className="navbar-link">Favorites</Link>
-        </li>
-        <li>
-          <Link to="/search" className="navbar-link">Search</Link>
+          <Link to="/favorites" className="navbar-link favorite-link">
+            Favorites <img src={starIcon} alt="Star" className="star-icon" />
+          </Link>
         </li>
         <li>
           <form className="search-form" onSubmit={handleSubmit}>
+            Search
             <input
               type="text"
               placeholder="Search..."
@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
               value={searchTerm}
             />
           </form>
-        </li>
+        </li> 
       </ul>
     </nav>
   );
