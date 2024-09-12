@@ -1,11 +1,9 @@
 import "../styles/Navbar.css";
-import starIcon from '../assets/icons8-star-50.png'
-import { Link } from 'react-router-dom';
 import React, { useState, useRef, useEffect } from "react";
 
 const Navbar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [cocktails, setCocktails] = useState<any[]>([]);
+  const [cocktails, setCocktails] = useState<unknown[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [searchPerformed, setSearchPerformed] = useState<boolean>(false); // New state to track search
 

@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@400;900&display=swap');
+
+.info-main {
+    background-image: url("../assets/bg.png");
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-header {
+    font-family: 'Elsie Swash Caps', serif;
+    color: white;
+    font-weight: 500;
+    margin-top: 3rem;
+}
+
+.info-card {
+    display: flex;
+    width: 45%;
+    aspect-ratio: 4 / 2.5;
+    margin-top: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        background-color: azure;
+    border-radius: 5px;
+}
+
+.info-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-right {
+    flex: 1;
+    justify-content: space-around;
+    padding: .5rem;
+}
+
+.info-left {
+    flex: 1;
+    justify-content: center;
+}
+
+.info-img {
+    width: 90%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 3px;
+}
