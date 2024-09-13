@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../styles/Search.css';
+import LeftArrowIcon from '../assets/left-arrow.png';
+import RightArrowIcon from '../assets/right-arrow.png';
 
 export function Search() {
   const [cocktails, setCocktails] = useState<any[]>([]);
@@ -25,7 +27,7 @@ export function Search() {
           setSearchPerformed(true);
           if (data.drinks) {
             setCocktails(data.drinks);
-            setCurrentPage(1);  // Reset to page 1 on new search
+            setCurrentPage(1); // Reset to page 1 on new search
           } else {
             setCocktails([]);
           }
@@ -48,6 +50,7 @@ export function Search() {
   }, [cocktails, currentPage]);
 
   const totalPages = Math.ceil(cocktails.length / cocktailsPerPage);
+  console.log('totalPages', totalPages);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -64,6 +67,12 @@ export function Search() {
   return (
     <main className="search-main">
       <h1 className="search-header">Search Results for "{query}"</h1>
+      <div className="pagination-arrows">
+      {currentPage > 1 && (
+          <button className='arrow-btn' onClick={handlePrevPage} /* disabled={currentPage === 1} */>
+            <img src={LeftArrowIcon} alt="Previous Page" />
+          </button>
+        )}
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -85,19 +94,24 @@ export function Search() {
             <p>Search for your favorite cocktails.</p>
           )}
         </section>
-      )}
+        
+      )}{currentPage < totalPages && (
+          <button className='arrow-btn' onClick={handleNextPage} disabled={currentPage === totalPages}>
+            <img src={RightArrowIcon}  alt="Next Page" />
+          </button>
+        )}
+      </div>
+
+
 
       {/* Pagination Controls */}
+
       <div className="pagination">
-        <button onClick={handlePrevPage} disabled={currentPage === 1}>
-          Previous
-        </button>
+       
         <span>
           Page {currentPage} of {totalPages}
         </span>
-        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-          Next
-        </button>
+       
       </div>
     </main>
   );
