@@ -77,7 +77,7 @@ export function Search() {
                   <img className="star-img" src="src/assets/icon-star.svg" alt="star" />
                 </div>
                 <h2>{cocktail.strDrink}</h2>
-                <button onClick={() => Navigate("/DrinkInfo")} className="search-btn-card">
+                <button onClick={() => Navigate("/info")} className="search-btn-card">
                   See more
                 </button>
               </aside>
