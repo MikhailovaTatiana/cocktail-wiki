@@ -5,6 +5,12 @@ import React, { useState, useRef, useEffect } from "react";
 
 const Navbar: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [cocktails, setCocktails] = useState<unknown[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searchPerformed, setSearchPerformed] = useState<boolean>(false); // New state to track search
+
+  const cocktailsPerPage = 10;
+
   const searchValue = useRef<HTMLInputElement>(null);
   const navigate = useNavigate(); // Using useNavigate hook for navigation
 
