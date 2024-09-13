@@ -1,8 +1,14 @@
+
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+
 import '../styles/Search.css';
 import LeftArrowIcon from '../assets/left-arrow.png';
 import RightArrowIcon from '../assets/right-arrow.png';
+=======
+
+import { useLocation, useNavigate } from "react-router-dom";
+import "../styles/Search.css";
+
 
 export function Search() {
   const [cocktails, setCocktails] = useState<any[]>([]);
@@ -12,7 +18,8 @@ export function Search() {
   const [searchPerformed, setSearchPerformed] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const location = useLocation();
-  const query = new URLSearchParams(location.search).get('query');
+  const query = new URLSearchParams(location.search).get("query");
+  const Navigate = useNavigate(); // direct to another page
 
   useEffect(() => {
     if (query) {
@@ -32,7 +39,7 @@ export function Search() {
             setCocktails([]);
           }
         } catch (error) {
-          console.error('Error fetching data from TheCocktailDB API:', error);
+          console.error("Error fetching data from TheCocktailDB API:", error);
         } finally {
           setLoading(false);
         }
@@ -85,7 +92,9 @@ export function Search() {
                   <img className="star-img" src="src/assets/icon-star.svg" alt="star" />
                 </div>
                 <h2>{cocktail.strDrink}</h2>
-                <button className="search-btn-card">See more</button>
+                <button onClick={() => Navigate("/info")} className="search-btn-card">
+                  See more
+                </button>
               </aside>
             ))
           ) : searchPerformed ? (
