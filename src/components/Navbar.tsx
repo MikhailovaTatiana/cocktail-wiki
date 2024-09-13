@@ -1,4 +1,6 @@
 import "../styles/Navbar.css";
+import starIcon from '../assets/icons8-star-50.png';
+import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useRef, useEffect } from "react";
 
 const Navbar: React.FC = () => {
@@ -8,7 +10,9 @@ const Navbar: React.FC = () => {
   const [searchPerformed, setSearchPerformed] = useState<boolean>(false); // New state to track search
 
   const cocktailsPerPage = 10;
+
   const searchValue = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate(); // Using useNavigate hook for navigation
 
   useEffect(() => {
     if (searchValue.current) {
@@ -22,61 +26,26 @@ const Navbar: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     if (searchTerm.trim() === "") return;
 
-    try {
-      const response = await fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`
-      );
-      const data = await response.json();
-
-      setSearchPerformed(true); // Set to true when a search is performed
-
-      if (data.drinks) {
-        setCocktails(data.drinks);
-      } else {
-        setCocktails([]);
-      }
-
-      setCurrentPage(1);
-    } catch (error) {
-      console.error("Error fetching data from TheCocktailDB API:", error);
-    }
-  };
-
-  const indexOfLastCocktail = currentPage * cocktailsPerPage;
-  const indexOfFirstCocktail = indexOfLastCocktail - cocktailsPerPage;
-  const currentCocktails = cocktails.slice(indexOfFirstCocktail, indexOfLastCocktail);
-
-  const totalPages = Math.ceil(cocktails.length / cocktailsPerPage);
-
-  const nextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
+    // Navigate to Search page with search term as a query param
+    navigate(`/search?query=${searchTerm}`);
   };
 
   return (
     <nav className="navbar">
-      <p>The CocktailDB</p>
+      <Link to="/" className="navbar-brand">The CocktailDB</Link>
       <ul className="navbar-list">
         <li>
-          <a href="#favorites" className="navbar-link">Favorites</a>
-        </li>
-        <li>
-          <a href="#search" className="navbar-link">Search</a>
+          <Link to="/favorites" className="navbar-link favorite-link">
+            Favorites <img src={starIcon} alt="Star" className="star-icon" />
+          </Link>
         </li>
         <li>
           <form className="search-form" onSubmit={handleSubmit}>
+            Search
             <input
               type="text"
               placeholder="Search..."
@@ -86,39 +55,11 @@ const Navbar: React.FC = () => {
               value={searchTerm}
             />
           </form>
-        </li>
+        </li> 
       </ul>
-
-      <section className="search-results">
-        {currentCocktails.length > 0 ? (
-          <>
-            <ul>
-              {currentCocktails.map((cocktail) => (
-                <li key={cocktail.idDrink}>
-                  <p>{cocktail.strDrink}</p>
-                  <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} width="100" />
-                </li>
-              ))}
-            </ul>
-
-            <div className="pagination">
-              <button onClick={prevPage} disabled={currentPage === 1}>
-                Previous
-              </button>
-              <span>
-                Page {currentPage} of {totalPages}
-              </span>
-              <button onClick={nextPage} disabled={currentPage === totalPages}>
-                Next
-              </button>
-            </div>
-          </>
-        ) : searchPerformed && (
-          <p>No cocktails found. Try searching for something else!</p>
-        )}
-      </section>
     </nav>
   );
 };
 
 export default Navbar;
+

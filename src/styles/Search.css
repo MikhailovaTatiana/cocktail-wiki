@@ -72,12 +72,12 @@ img.star-img {
     justify-content: space-around;
     color: white;
     font-family: 'Elsie Swash Caps', serif;
-    font-size: 20px;
-    cursor: pointer;
+    font-size: 20px; 
 }
 
-.pagination:hover {
-    color: #fe9ff8;
+.pagination span:hover {
+    color: #800f82;
+    cursor: pointer;
 }
 
 .search-btn-card {

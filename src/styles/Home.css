@@ -2,6 +2,8 @@
 
 .home-main {
     background-image: url("../assets/cover.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100vw;
     height: 90vh;
     display: flex;
@@ -18,19 +20,54 @@
     background-color: azure;
     border-radius: 2px;
     display: flex;
+    border-radius: 25px 25px 25px 25px;
 }
 
 .random-btn {
-    width: max-content;
-    padding: 0 10px;
     background-color: #ff975e;
+    color: black;
     border: none;
+    padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-        rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    height: 2rem;
-    font-size: 25px;
-    font-family: 'Elsie Swash Caps', serif;
+    font-family: 'Elsie Swash Caps',
+        serif;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.random-btn:hover {
+    background-color: #e46c2b;
+    transform: translateY(-2px);
+}
+
+.random-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.see-more-btn {
+    margin-bottom: 6rem;
+    background-color: #ffc8ff;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-family: 'Elsie Swash Caps',
+        serif;
+    cursor: pointer;
+}
+
+.see-more-btn:hover {
+    background-color: #f792f7;
+    transform: translateY(-2px);
+}
+
+.see-more-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .img-card {
@@ -39,6 +76,7 @@
     aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: center;
+    border-radius: 25px 0px 0px 25px;
 }
 
 .aside-card {
@@ -47,6 +85,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
 }
 
 .star {
@@ -54,6 +93,7 @@
     margin-right: 1rem;
     align-self: flex-end;
     width: 30px;
+    cursor: pointer;
 }
 
 .drink-name {
@@ -62,14 +102,4 @@
     text-align: center;
     width: 85%;
     font-family: 'Elsie Swash Caps', serif;
-}
-
-.home-btn-card {
-    margin-bottom: 1rem;
-    background-color: #ffc8ff;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    padding: 7px;
-    font-size: 15px;
 }
