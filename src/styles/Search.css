@@ -75,7 +75,7 @@ img.star-img {
   width: 10%;
   display: flex;
   justify-content: space-around;
-  color: white;
+  /* color: white; */
   font-family: 'Elsie Swash Caps', serif;
   font-size: 20px;
 }

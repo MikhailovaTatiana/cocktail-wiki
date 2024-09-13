@@ -1,14 +1,9 @@
 
-import React, { useState, useEffect } from 'react';
-
+import { useState, useEffect } from 'react';
 import '../styles/Search.css';
 import LeftArrowIcon from '../assets/left-arrow.png';
 import RightArrowIcon from '../assets/right-arrow.png';
-=======
-
 import { useLocation, useNavigate } from "react-router-dom";
-import "../styles/Search.css";
-
 
 export function Search() {
   const [cocktails, setCocktails] = useState<any[]>([]);
