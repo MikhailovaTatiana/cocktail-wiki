@@ -18,6 +18,14 @@
     margin-top: 3rem;
 }
 
+.drink-header {
+    font-family: 'Elsie Swash Caps',
+        serif;
+    font-weight: normal;
+    font-size: 2rem;
+    margin: 10px;
+}
+
 .info-card {
     display: flex;
     width: 45%;
@@ -25,7 +33,7 @@
     margin-top: 2rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
-        background-color: azure;
+    background-color: azure;
     border-radius: 5px;
 }
 
