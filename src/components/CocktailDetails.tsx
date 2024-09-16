@@ -13,9 +13,12 @@ interface Cocktail {
   strIngredient2: string;
   strIngredient3: string;
   strIngredient4: string;
+  strIngredient5: string;
   strMeasure1: string; // mått
   strMeasure2: string;
   strMeasure3: string;
+  strMeasure4: string;
+  strMeasure5: string;
   strGlass: string; // glas
 }
 
@@ -32,20 +35,40 @@ const CocktailDetails: React.FC = () => {
       });
   }, [id]);
 
-  if (!cocktail) return <p>Loading...</p>;
+  if (!cocktail) return <p>Erorr loading api</p>;
 
   return (
     <section>
       <h1>{cocktail.strDrink}</h1>
       <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+      <p>Category: {cocktail.strCategory}</p>
       <p>Type: {cocktail.strAlcoholic}</p>
+      <p>Glass: {cocktail.strGlass}</p>
+      <h1>List of ingredients:</h1>
       <ul>
-        <li>{cocktail.strIngredient1}</li>
-        <li>{cocktail.strIngredient2}</li>
-        <li>{cocktail.strIngredient3}</li>
-        <li>{cocktail.strIngredient4}</li>
+        <li>
+          {cocktail.strMeasure1}
+          {cocktail.strIngredient1}
+        </li>
+        <li>
+          {cocktail.strMeasure2}
+          {cocktail.strIngredient2}
+        </li>
+        <li>
+          {cocktail.strMeasure3}
+          {cocktail.strIngredient3}
+        </li>
+        <li>
+          {cocktail.strMeasure4}
+          {cocktail.strIngredient4}
+        </li>
+        <li>
+          {cocktail.strMeasure5}
+          {cocktail.strIngredient5}
+        </li>
       </ul>
-      <p>Instructions: {cocktail.strInstructions}</p>
+      <h1>Instructions:</h1>
+      <p>{cocktail.strInstructions}</p>
     </section>
   );
 };
