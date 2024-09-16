@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/DrinkInfo.css";
 
 interface Cocktail {
@@ -26,6 +26,7 @@ interface Cocktail {
 const CocktailDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>(); // get cocktail id
   const [cocktail, setCocktail] = useState<Cocktail | null>(null);
+  const Navigate = useNavigate();
 
   useEffect(() => {
     // fetch cocktail details by ID
@@ -79,6 +80,9 @@ const CocktailDetails: React.FC = () => {
             <h1 className="instructions-header">Instructions</h1>
             <p>{cocktail.strInstructions}</p>
           </section>
+          <button onClick={() => Navigate(-1)} className="goback-btn">
+            Go back
+          </button>
         </aside>
       </section>
     </main>

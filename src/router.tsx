@@ -19,6 +19,10 @@ export const router = createBrowserRouter([
         element: <CocktailDetails />,
       },
       {
+        path: "/previous-page",
+        element: <CocktailDetails />,
+      },
+      {
         path: "/search",
         element: <Search />,
       },
