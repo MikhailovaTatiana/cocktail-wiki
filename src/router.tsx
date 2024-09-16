@@ -3,7 +3,7 @@ import App from "./components/App";
 import { Home } from "./pages/Home";
 import { Search } from "./pages/Search";
 import { NotFound } from "./pages/NotFound";
-import CocktailDetails from "./components/CocktailDetails";
+import DrinkInfo from "./pages/DrinkInfo";
 
 export const router = createBrowserRouter([
   {
@@ -16,11 +16,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/cocktail/:id",
-        element: <CocktailDetails />,
+        element: <DrinkInfo />,
       },
       {
         path: "/previous-page",
-        element: <CocktailDetails />,
+        element: <DrinkInfo />,
       },
       {
         path: "/search",
