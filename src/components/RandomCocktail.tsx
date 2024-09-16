@@ -9,7 +9,7 @@ interface Cocktail {
   strDrinkThumb: string;
 }
 
-const CocktailCard: React.FC = () => {
+const CocktailCard = () => {
   const [cocktail, setCocktail] = useState<Cocktail | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const Navigate = useNavigate(); // direct to another page

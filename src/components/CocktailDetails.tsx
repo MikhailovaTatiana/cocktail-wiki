@@ -23,7 +23,7 @@ interface Cocktail {
   strGlass: string; // glas
 }
 
-const CocktailDetails: React.FC = () => {
+const CocktailDetails = () => {
   const { id } = useParams<{ id: string }>(); // get cocktail id
   const [cocktail, setCocktail] = useState<Cocktail | null>(null);
   const Navigate = useNavigate();
