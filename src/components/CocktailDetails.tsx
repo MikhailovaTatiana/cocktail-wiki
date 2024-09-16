@@ -9,6 +9,7 @@ interface Cocktail {
   strCategory: string; // kategori
   strAlcoholic: string; // alkohol
   strTags: string; // taggar
+  strInstructions: string; // instruktion
   strIngredient1: string; // ingrediens
   strIngredient2: string;
   strIngredient3: string;
@@ -49,29 +50,35 @@ const CocktailDetails: React.FC = () => {
           <p>Glass: {cocktail.strGlass}</p>
         </aside>
         <aside className="info-aside info-left">
-          <h1>Ingredients:</h1>
-          <ul>
-            <li>
-              {cocktail.strMeasure1}
-              {cocktail.strIngredient1}
-            </li>
-            <li>
-              {cocktail.strMeasure2}
-              {cocktail.strIngredient2}
-            </li>
-            <li>
-              {cocktail.strMeasure3}
-              {cocktail.strIngredient3}
-            </li>
-            <li>
-              {cocktail.strMeasure4}
-              {cocktail.strIngredient4}
-            </li>
-            <li>
-              {cocktail.strMeasure5}
-              {cocktail.strIngredient5}
-            </li>
-          </ul>
+          <section className="ingredient-container">
+            <h1 className="ingredient-header">Ingredients</h1>
+            <ul>
+              <li>
+                {cocktail.strMeasure1 || ""}
+                {cocktail.strIngredient1 || ""}
+              </li>
+              <li>
+                {cocktail.strMeasure2 || ""}
+                {cocktail.strIngredient2 || ""}
+              </li>
+              <li>
+                {cocktail.strMeasure3 || ""}
+                {cocktail.strIngredient3 || ""}
+              </li>
+              <li>
+                {cocktail.strMeasure4 || ""}
+                {cocktail.strIngredient4 || ""}
+              </li>
+              <li>
+                {cocktail.strMeasure5 || ""}
+                {cocktail.strIngredient5 || ""}
+              </li>
+            </ul>
+          </section>
+          <section className="instructions-container">
+            <h1 className="instructions-header">Instructions</h1>
+            <p>{cocktail.strInstructions}</p>
+          </section>
         </aside>
       </section>
     </main>
