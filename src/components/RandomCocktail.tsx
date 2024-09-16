@@ -47,7 +47,10 @@ const CocktailCard: React.FC = () => {
             <aside className="aside-card">
               <img className="star" src="src\assets\icons8-star-50.png" alt="star" />
               <h2 className="drink-name">{cocktail.strDrink}</h2>
-              <button onClick={() => Navigate("/info")} className="see-more-btn">
+              <button
+                onClick={() => Navigate(`/cocktail/${cocktail.idDrink}`)}
+                className="see-more-btn"
+              >
                 See more
               </button>
             </aside>
