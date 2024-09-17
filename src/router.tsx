@@ -23,6 +23,10 @@ export const router = createBrowserRouter([
         element: <DrinkInfo />,
       },
       {
+        path: "/info",
+        element: <DrinkInfo />,
+      },
+      {
         path: "/search",
         element: <Search />,
       },

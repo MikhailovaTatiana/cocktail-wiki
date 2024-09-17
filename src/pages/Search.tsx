@@ -67,30 +67,33 @@ export function Search() {
 
   const shouldShowPagination = searchPerformed && cocktails.length > 0 && totalPages > 1;
 
-  return (    
+  return (
     <main className="search-main">
       <h1 className="search-header">Search Results for "{query}"</h1>
       {shouldShowPagination && (
-  <div className="pagination-container">
-    <div className="arrow-placeholder">
-      {currentPage > 1 && (
-        <button className='arrow-btn' onClick={handlePrevPage}>
-          <img src={LeftArrowIcon} alt="Previous Page" />
-        </button>
+        <div className="pagination-container">
+          <div className="arrow-placeholder">
+            {currentPage > 1 && (
+              <button className="arrow-btn" onClick={handlePrevPage}>
+                <img src={LeftArrowIcon} alt="Previous Page" />
+              </button>
+            )}
+          </div>
+          <span className="pages">
+            <p>
+              {" "}
+              Page {currentPage} of {totalPages}
+            </p>
+          </span>
+          <div className="arrow-placeholder">
+            {currentPage < totalPages && (
+              <button className="arrow-btn" onClick={handleNextPage}>
+                <img src={RightArrowIcon} alt="Next Page" />
+              </button>
+            )}
+          </div>
+        </div>
       )}
-    </div>
-    <span className="pages">
-      <p> Page {currentPage} of {totalPages}</p>
-    </span>
-    <div className="arrow-placeholder">
-      {currentPage < totalPages && (
-        <button className='arrow-btn' onClick={handleNextPage}>
-          <img src={RightArrowIcon} alt="Next Page" />
-        </button>
-      )}
-    </div>
-  </div>
-)}      
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -103,7 +106,10 @@ export function Search() {
                   <img className="star-img" src="src/assets/icon-star.svg" alt="star" />
                 </div>
                 <h2>{cocktail.strDrink}</h2>
-                <button onClick={() => Navigate("/info")} className="search-btn-card">
+                <button
+                  onClick={() => Navigate(`/cocktail/${cocktail.idDrink}`)}
+                  className="search-btn-card"
+                >
                   See more
                 </button>
               </aside>
