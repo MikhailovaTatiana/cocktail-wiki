@@ -90,7 +90,7 @@ li {
 
 .ingredient:hover {
     cursor: pointer;
-    background-color: coral;
+    background-color: #ff975e;
 }
 
 .instructions-container {
