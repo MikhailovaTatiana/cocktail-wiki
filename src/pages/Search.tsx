@@ -1,8 +1,7 @@
-
-import { useState, useEffect } from 'react';
-import '../styles/Search.css';
-import LeftArrowIcon from '../assets/left-arrow.png';
-import RightArrowIcon from '../assets/right-arrow.png';
+import { useState, useEffect } from "react";
+import "../styles/Search.css";
+import LeftArrowIcon from "../assets/left-arrow.png";
+import RightArrowIcon from "../assets/right-arrow.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export function Search() {
@@ -52,7 +51,7 @@ export function Search() {
   }, [cocktails, currentPage]);
 
   const totalPages = Math.ceil(cocktails.length / cocktailsPerPage);
-  console.log('totalPages', totalPages);
+  console.log("totalPages", totalPages);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
