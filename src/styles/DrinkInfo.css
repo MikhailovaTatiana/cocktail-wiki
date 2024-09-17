@@ -18,14 +18,38 @@
     margin-top: 3rem;
 }
 
+.drink-header {
+    font-family: 'Elsie Swash Caps',
+        serif;
+    font-weight: normal;
+    font-size: 2rem;
+    margin: 10px;
+}
+
+.ingredient-header {
+    font-family: 'Elsie Swash Caps';
+    font-size: 2rem;
+    font-weight: normal;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.instructions-header {
+    font-family: 'Elsie Swash Caps';
+    font-size: 2rem;
+    font-weight: normal;
+    padding-left: 0;
+    margin-left: 0;
+}
+
 .info-card {
     display: flex;
-    width: 45%;
+    width: 50%;
     aspect-ratio: 4 / 2.5;
     margin-top: 2rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
-        background-color: azure;
+    background-color: azure;
     border-radius: 5px;
 }
 
@@ -43,7 +67,7 @@
 
 .info-left {
     flex: 1;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .info-img {
@@ -52,4 +76,62 @@
     object-fit: cover;
     object-position: center;
     border-radius: 3px;
+}
+
+.star-in-info {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    align-self: flex-end;
+    width: 30px;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+li {
+    margin: 6px;
+}
+
+.ingredient:hover {
+    cursor: pointer;
+    background-color: #ff975e;
+}
+
+.instructions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ingredient-container+.instructions-container {
+    margin-top: 60px;
+}
+
+.goback-btn {
+    margin-bottom: 6rem;
+    background-color: #ffc8ff;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin: 10px;
+    margin-top: 50px;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-family: 'Elsie Swash Caps',
+        serif;
+    cursor: pointer;
+}
+
+.goback-btn:hover {
+    background-color: #f792f7;
+    transform: translateY(-2px);
+}
+
+.goback-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
