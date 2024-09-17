@@ -67,7 +67,7 @@
 
 .info-left {
     flex: 1;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .info-img {
@@ -76,6 +76,14 @@
     object-fit: cover;
     object-position: center;
     border-radius: 3px;
+}
+
+.star-in-info {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    align-self: flex-end;
+    width: 30px;
+    cursor: pointer;
 }
 
 ul {

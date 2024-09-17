@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/DrinkInfo.css";
-
 interface Cocktail {
   idDrink: string; // id
   strDrink: string; // namn
@@ -51,6 +50,7 @@ const CocktailDetails = () => {
           <p>Glass: {cocktail.strGlass}</p>
         </aside>
         <aside className="info-aside info-left">
+          <img className="star-in-info" src="src\assets\icons8-star-50.png" alt="star" />
           <section className="ingredient-container">
             <h1 className="ingredient-header">Ingredients</h1>
             <ul>
