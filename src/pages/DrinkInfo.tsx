@@ -56,23 +56,23 @@ const CocktailDetails = () => {
             <ul>
               <li>
                 {cocktail.strMeasure1 || ""}
-                {cocktail.strIngredient1 || ""}
+                <span className="ingredient">{cocktail.strIngredient1 || ""}</span>
               </li>
               <li>
                 {cocktail.strMeasure2 || ""}
-                {cocktail.strIngredient2 || ""}
+                <span className="ingredient">{cocktail.strIngredient2 || ""}</span>
               </li>
               <li>
                 {cocktail.strMeasure3 || ""}
-                {cocktail.strIngredient3 || ""}
+                <span className="ingredient">{cocktail.strIngredient3 || ""}</span>
               </li>
               <li>
                 {cocktail.strMeasure4 || ""}
-                {cocktail.strIngredient4 || ""}
+                <span className="ingredient">{cocktail.strIngredient4 || ""}</span>
               </li>
               <li>
                 {cocktail.strMeasure5 || ""}
-                {cocktail.strIngredient5 || ""}
+                <span className="ingredient">{cocktail.strIngredient5 || ""}</span>
               </li>
             </ul>
           </section>
