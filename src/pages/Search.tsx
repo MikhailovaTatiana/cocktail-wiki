@@ -1,8 +1,7 @@
-
-import { useState, useEffect } from 'react';
-import '../styles/Search.css';
-import LeftArrowIcon from '../assets/left-arrow.png';
-import RightArrowIcon from '../assets/right-arrow.png';
+import { useState, useEffect } from "react";
+import "../styles/Search.css";
+import LeftArrowIcon from "../assets/left-arrow.png";
+import RightArrowIcon from "../assets/right-arrow.png";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export function Search() {
@@ -52,7 +51,7 @@ export function Search() {
   }, [cocktails, currentPage]);
 
   const totalPages = Math.ceil(cocktails.length / cocktailsPerPage);
-  console.log('totalPages', totalPages);
+  console.log("totalPages", totalPages);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -66,15 +65,35 @@ export function Search() {
     }
   };
 
+  const shouldShowPagination = searchPerformed && cocktails.length > 0 && totalPages > 1;
+
   return (
     <main className="search-main">
       <h1 className="search-header">Search Results for "{query}"</h1>
-      <div className="pagination-arrows">
-      {currentPage > 1 && (
-          <button className='arrow-btn' onClick={handlePrevPage} /* disabled={currentPage === 1} */>
-            <img src={LeftArrowIcon} alt="Previous Page" />
-          </button>
-        )}
+      {shouldShowPagination && (
+        <div className="pagination-container">
+          <div className="arrow-placeholder">
+            {currentPage > 1 && (
+              <button className="arrow-btn" onClick={handlePrevPage}>
+                <img src={LeftArrowIcon} alt="Previous Page" />
+              </button>
+            )}
+          </div>
+          <span className="pages">
+            <p>
+              {" "}
+              Page {currentPage} of {totalPages}
+            </p>
+          </span>
+          <div className="arrow-placeholder">
+            {currentPage < totalPages && (
+              <button className="arrow-btn" onClick={handleNextPage}>
+                <img src={RightArrowIcon} alt="Next Page" />
+              </button>
+            )}
+          </div>
+        </div>
+      )}
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -87,7 +106,10 @@ export function Search() {
                   <img className="star-img" src="src/assets/icon-star.svg" alt="star" />
                 </div>
                 <h2>{cocktail.strDrink}</h2>
-                <button onClick={() => Navigate("/info")} className="search-btn-card">
+                <button
+                  onClick={() => Navigate(`/cocktail/${cocktail.idDrink}`)}
+                  className="search-btn-card"
+                >
                   See more
                 </button>
               </aside>
@@ -98,25 +120,7 @@ export function Search() {
             <p>Search for your favorite cocktails.</p>
           )}
         </section>
-        
-      )}{currentPage < totalPages && (
-          <button className='arrow-btn' onClick={handleNextPage} disabled={currentPage === totalPages}>
-            <img src={RightArrowIcon}  alt="Next Page" />
-          </button>
-        )}
-      </div>
-
-
-
-      {/* Pagination Controls */}
-
-      <div className="pagination">
-       
-        <span>
-          Page {currentPage} of {totalPages}
-        </span>
-       
-      </div>
+      )}
     </main>
   );
 }
