@@ -65,7 +65,7 @@ export function Search() {
     }
   };
 
-  const shouldShowPagination = searchPerformed && cocktails.length > 0 && totalPages > 1;
+  const shouldShowPagination = searchPerformed && cocktails.length > 0 && totalPages > 0;
 
   return (    
     <main className="search-main">
