@@ -13,6 +13,7 @@ export function DrinkInfo() {
                     <p>Category</p>
                 </aside>
                 <aside className='info-aside info-left'>
+                    <img className="star-in-info" src="src\assets\icons8-star-50.png" alt="star" />
                     <h4>Ingrediens</h4>
                     <ul>
                         <li>gdfg</li>
