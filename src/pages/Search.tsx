@@ -1,8 +1,8 @@
 
-import { useState, useEffect } from 'react';
-import '../styles/Search.css';
-import LeftArrowIcon from '../assets/left-arrow.png';
-import RightArrowIcon from '../assets/right-arrow.png';
+import { useState, useEffect } from "react";
+import "../styles/Search.css";
+import LeftArrowIcon from "../assets/left-arrow.png";
+import RightArrowIcon from "../assets/right-arrow.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import FavoriteButton from '../components/FavoriteButton'; // Import the FavoriteButton component
 
@@ -72,6 +72,7 @@ export function Search() {
   return (
     <main className="search-main">
       <h1 className="search-header">Search Results for "{query}"</h1>
+<<<<<<< HEAD
       <div className="pagination-arrows">
       {currentPage > 1 && (
           <button className='arrow-btn' onClick={handlePrevPage} /* disabled={currentPage === 1} */>
@@ -120,6 +121,59 @@ export function Search() {
         </span>
        
       </div>
+=======
+      {shouldShowPagination && (
+        <div className="pagination-container">
+          <div className="arrow-placeholder">
+            {currentPage > 1 && (
+              <button className="arrow-btn" onClick={handlePrevPage}>
+                <img src={LeftArrowIcon} alt="Previous Page" />
+              </button>
+            )}
+          </div>
+          <span className="pages">
+            <p>
+              {" "}
+              Page {currentPage} of {totalPages}
+            </p>
+          </span>
+          <div className="arrow-placeholder">
+            {currentPage < totalPages && (
+              <button className="arrow-btn" onClick={handleNextPage}>
+                <img src={RightArrowIcon} alt="Next Page" />
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <section className="result-cards">
+          {displayedCocktails.length > 0 ? (
+            displayedCocktails.map((cocktail) => (
+              <aside className="search-card" key={cocktail.idDrink}>
+                <div className="images">
+                  <img className="drink-img" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+                  <img className="star-img" src="src/assets/icon-star.svg" alt="star" />
+                </div>
+                <h2>{cocktail.strDrink}</h2>
+                <button
+                  onClick={() => Navigate(`/cocktail/${cocktail.idDrink}`)}
+                  className="search-btn-card"
+                >
+                  See more
+                </button>
+              </aside>
+            ))
+          ) : searchPerformed ? (
+            <p>No results found for "{query}". Try a different search.</p>
+          ) : (
+            <p>Search for your favorite cocktails.</p>
+          )}
+        </section>
+      )}
+>>>>>>> a84f3708d8f45e1cff30c97511486429a1d6e830
     </main>
   );
 }
