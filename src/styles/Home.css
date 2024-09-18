@@ -1,16 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@400;900&display=swap');
-
 .home-main {
     background-image: url("../assets/cover.png");
-    background-size: cover;
-    background-repeat: no-repeat;
     width: 100vw;
-    height: 90vh;
+    height: 93vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 5%;
 }
 
 .card {
@@ -24,13 +18,12 @@
 }
 
 .random-btn {
+    margin: 2rem 0;
     background-color: #ff975e;
     color: black;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 5px;
-    font-family: 'Elsie Swash Caps',
-        serif;
     font-size: 2rem;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -55,8 +48,6 @@
     padding: 10px;
     border-radius: 10px;
     font-size: 2rem;
-    font-family: 'Elsie Swash Caps',
-        serif;
     cursor: pointer;
 }
 
@@ -85,7 +76,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .star {
@@ -101,5 +91,4 @@
     font-weight: 400;
     text-align: center;
     width: 90%;
-    font-family: 'Elsie Swash Caps', serif;
 }
