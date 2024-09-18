@@ -5,6 +5,7 @@ import { Search } from "./pages/Search";
 import { NotFound } from "./pages/NotFound";
 import DrinkInfo from "./pages/DrinkInfo";
 import Favorites from "./pages/Favorites";
+import { Ingredient } from "./pages/Ingredient";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "/search",
         element: <Search />,
+      },
+      {
+        path: "/ingredient",
+        element: <Ingredient />,
       },
       {
         path: "/favorites",
