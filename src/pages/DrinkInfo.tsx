@@ -50,7 +50,7 @@ const CocktailDetails = () => {
           <p>Glass: {cocktail.strGlass}</p>
         </aside>
         <aside className="info-aside info-left">
-          <img className="star-in-info" src="src\assets\icons8-star-50.png" alt="star" />
+          <img className="star-in-info" src="src/assets/icons8-star-50.png" alt="star" />
           <section className="ingredient-container">
             <h1 className="ingredient-header">Ingredients</h1>
             <ul>

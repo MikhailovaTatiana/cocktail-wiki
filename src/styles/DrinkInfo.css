@@ -5,7 +5,7 @@
     background-position: center;
     background-size: cover;
     width: 100vw;
-    height: 90vh;
+    height: 93vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +15,7 @@
     font-family: 'Elsie Swash Caps', serif;
     color: white;
     font-weight: 500;
-    margin-top: 3rem;
+    margin: 2rem 0;
 }
 
 .drink-header {
@@ -46,7 +46,6 @@
     display: flex;
     width: 50%;
     aspect-ratio: 4 / 2.5;
-    margin-top: 2rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
     background-color: azure;

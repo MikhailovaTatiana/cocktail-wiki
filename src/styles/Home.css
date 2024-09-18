@@ -5,12 +5,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     width: 100vw;
-    height: 90vh;
+    height: 93vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 5%;
 }
 
 .card {
@@ -18,12 +16,12 @@
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
     width: 50%;
     background-color: azure;
-    border-radius: 2px;
     display: flex;
     border-radius: 25px 25px 25px 25px;
 }
 
 .random-btn {
+    margin: 2rem 0;
     background-color: #ff975e;
     color: black;
     border: none;
@@ -85,7 +83,6 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .star {
