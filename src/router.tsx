@@ -31,10 +31,10 @@ export const router = createBrowserRouter([
         path: "/search",
         element: <Search />,
       },
-    //   {
-    //     path: "/favorites",
-    //     element: <Favorites />,
-    //   },
+      {
+        path: "/favorites",
+        element: <Favorites />,
+      },
       {
         path: "*",
         element: <NotFound />,
