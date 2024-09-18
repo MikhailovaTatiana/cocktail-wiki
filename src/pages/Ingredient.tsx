@@ -31,7 +31,7 @@ export function Ingredient() {
       <section className="ingredient-card">
         <aside className="ingredient-aside ingredient-right">
           <h1 className="ingredient-header">{ingredientName}</h1>
-          <img className="ingredient-image" src={`/src/assets/lime.png`} alt={ingredientName} />
+          <img className="ingredient-image" src={`/src/assets/lime.png`} />
         </aside>
         <aside className="ingredient-aside ingredient-left">
           <section className="ingredient-container">
