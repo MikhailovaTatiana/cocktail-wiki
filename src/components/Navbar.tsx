@@ -1,22 +1,12 @@
-import '../styles/Navbar.css';
-import starIcon from '../assets/icons8-star-50.png';
+import '../styles/Navbar.css'; 
 import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useRef, useEffect } from 'react';
+import FavoriteButton from './FavoriteButton'; // Import the FavoriteButton component
 
 const Navbar: React.FC = () => {
-
-
-
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [cocktails, setCocktails] = useState<unknown[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [searchPerformed, setSearchPerformed] = useState<boolean>(false); // New state to track search
-
-  const cocktailsPerPage = 10;
-
-
   const searchValue = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate(); // Using useNavigate hook for navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (searchValue.current) {
@@ -45,9 +35,7 @@ const Navbar: React.FC = () => {
       </Link>
       <ul className="navbar-list">
         <li>
-          <Link to="/favorites" className="navbar-link favorite-link">
-            Favorites <img src={starIcon} alt="Star" className="star-icon" />
-          </Link>
+          <FavoriteButton drinkName="" drinkImgUrl="" /> {/* Adjust props if needed */}
         </li>
         <li>
           <form className="search-form" onSubmit={handleSubmit}>
@@ -67,3 +55,6 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
+
+
