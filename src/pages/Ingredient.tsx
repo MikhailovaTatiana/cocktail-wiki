@@ -49,6 +49,12 @@ export function Ingredient() {
           </section>
         </aside>
       </section>
+      <section className="grid-drinks">
+        <article className="drink-card">
+          <img className="drink-image" src={`/src/assets/test-img-drink.png`} alt="drink-image" />
+          <p>Aperol Spritz</p>
+        </article>
+      </section>
     </main>
   );
 }
