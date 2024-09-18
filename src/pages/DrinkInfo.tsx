@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/DrinkInfo.css";
 interface Cocktail {
   idDrink: string; // id
@@ -56,7 +56,9 @@ const CocktailDetails = () => {
             <ul>
               <li>
                 {cocktail.strMeasure1 || ""}
-                <span className="ingredient">{cocktail.strIngredient1 || ""}</span>
+                <Link to={`/ingredient/${cocktail.strIngredient1}`}>
+                  <span className="ingredient">{cocktail.strIngredient1 || ""}</span>
+                </Link>
               </li>
               <li>
                 {cocktail.strMeasure2 || ""}

@@ -1,14 +1,37 @@
+import { useParams } from "react-router-dom";
 import "../styles/Ingredient.css";
+import { useEffect, useState } from "react";
+
+interface IngredientDetail {
+  idIngredient: string; // id/namn
+  strIngredient: string; // ingredient
+  strDrinkThumb: string; // bild
+}
 
 export function Ingredient() {
+  const { ingredientName } = useParams<{ ingredientName: string }>();
+  const [ingredient, setIngredient] = useState<IngredientDetail | null>(null);
+
+  useEffect(() => {
+    // Fetch ingredient details
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${ingredientName}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.ingredients && data.ingredients.length > 0) {
+          setIngredient(data.ingredients[0]); // first ingredient found
+        }
+      });
+  }, [ingredientName]);
+
+  if (!ingredient) return <p>Loading ingredient details...</p>;
+
   return (
     <main className="ingredient-main">
       <h1 className="ing-header">Ingredient</h1>
       <section className="ingredient-card">
         <aside className="ingredient-aside ingredient-right">
-          <h1 className="ingredient-header">Lime</h1>
-          <img className="ingredient-image" src="src/assets/lime.png" />
-          <p>Type: fruit</p>
+          <h1 className="ingredient-header">{ingredientName}</h1>
+          <img className="ingredient-image" src={`/src/assets/lime.png`} alt={ingredientName} />
         </aside>
         <aside className="ingredient-aside ingredient-left">
           <section className="ingredient-container">
@@ -25,23 +48,9 @@ export function Ingredient() {
             </p>
           </section>
         </aside>
-        {/*         <section className="grid-drinks">
-          <article className="card">
-            <img className="drink-img" src="src/assets/test-img-drink.png" />
-            <h1>Aperol Spritz</h1>
-          </article>
-
-          <article className="card">
-            <img className="drink-img" src="src/assets/test-img-drink.png" />
-            <h1>Aperol Spritz</h1>
-          </article>
-
-          <article className="card">
-            <img className="drink-img" src="src/assets/test-img-drink.png" />
-            <h1>Aperol Spritz</h1>
-          </article>
-        </section> */}
       </section>
     </main>
   );
 }
+
+export default Ingredient;

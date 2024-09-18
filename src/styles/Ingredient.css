@@ -30,8 +30,6 @@
     font-family: 'Elsie Swash Caps';
     font-size: 2rem;
     font-weight: normal;
-    padding-left: 0;
-    margin-left: 0;
 }
 
 .ingredient-card {
@@ -52,19 +50,24 @@
 
 .ingredient-right {
     flex: 1;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: .5rem;
 }
 
 .ingredient-left {
     flex: 1;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-left: 10px;
 }
 
 .ingredient-image {
-    width: 60%;
+    width: 50%;
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
     border-radius: 3px;
+}
+
+.description-text {
+    margin-right: 20px;
 }
