@@ -62,19 +62,27 @@ const CocktailDetails = () => {
               </li>
               <li>
                 {cocktail.strMeasure2 || ""}
-                <span className="ingredient">{cocktail.strIngredient2 || ""}</span>
+                <Link to={`/ingredient/${cocktail.strIngredient2}`}>
+                  <span className="ingredient">{cocktail.strIngredient2 || ""}</span>
+                </Link>
               </li>
               <li>
                 {cocktail.strMeasure3 || ""}
-                <span className="ingredient">{cocktail.strIngredient3 || ""}</span>
+                <Link to={`/ingredient/${cocktail.strIngredient3}`}>
+                  <span className="ingredient">{cocktail.strIngredient3 || ""}</span>
+                </Link>
               </li>
               <li>
                 {cocktail.strMeasure4 || ""}
-                <span className="ingredient">{cocktail.strIngredient4 || ""}</span>
+                <Link to={`/ingredient/${cocktail.strIngredient4}`}>
+                  <span className="ingredient">{cocktail.strIngredient4 || ""}</span>
+                </Link>
               </li>
               <li>
                 {cocktail.strMeasure5 || ""}
-                <span className="ingredient">{cocktail.strIngredient5 || ""}</span>
+                <Link to={`/ingredient/${cocktail.strIngredient5}`}>
+                  <span className="ingredient">{cocktail.strIngredient5 || ""}</span>
+                </Link>
               </li>
             </ul>
           </section>

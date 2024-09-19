@@ -93,6 +93,11 @@ li {
     margin: 6px;
 }
 
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
 .ingredient:hover {
     cursor: pointer;
     background-color: #ff975e;

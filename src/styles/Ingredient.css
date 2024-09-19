@@ -30,35 +30,61 @@
     font-family: 'Elsie Swash Caps';
     font-size: 2rem;
     font-weight: normal;
+    margin-top: 80px;
 }
 
-.ingredient-card {
+/* .ingredient-card {
     display: flex;
     width: 60%;
-    height: 100%;
+    height: 500px;
+    background-color: azure;
+    
+} */
+.ingredient-card {
+    background-color: azure;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    background-color: azure;
     border-radius: 5px;
+    width: 60%;
+    height: 1000px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 190px;
+    /* Adds space between ingredient section and grid */
 }
 
 .ingredient-aside {
+    flex: 1;
+    margin: 10px;
+}
+
+/* .ingredient-aside {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 
 .ingredient-right {
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* .ingredient-right {
     flex: 1;
     justify-content: space-evenly;
     padding: .5rem;
 }
-
+ */
 .ingredient-left {
+    flex: 2;
+}
+
+/* .ingredient-left {
     flex: 1;
     justify-content: space-around;
     margin-left: 10px;
-}
+} */
 
 .ingredient-image {
     width: 50%;
@@ -70,16 +96,29 @@
 
 .description-text {
     margin-right: 20px;
+    margin-top: 10px;
+}
+
+.grid-drinks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
 }
 
 .drink-card {
     border-radius: 8px;
-    padding: 10px;
     margin: 10px;
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .drink-image {
     width: 50%;
     border-radius: 8px;
+}
+
+.drinks-header-grid {
+    display: flex;
+    text-align: center;
 }

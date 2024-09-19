@@ -48,12 +48,58 @@ export function Ingredient() {
             </p>
           </section>
         </aside>
-      </section>
-      <section className="grid-drinks">
-        <article className="drink-card">
-          <img className="drink-image" src={`/src/assets/test-img-drink.png`} alt="drink-image" />
-          <p>Aperol Spritz</p>
-        </article>
+        {/* grid for drink cards */}
+        <h1 className="drinks-header-grid">Drinks</h1>
+        <section className="grid-drinks">
+          <article className="drink-card">
+            <img
+              className="drink-image"
+              src={`/src/assets/test-img-drink.png`}
+              alt="Aperol Spritz"
+            />
+            <p>Aperol Spritz</p>
+          </article>
+          <article className="drink-card">
+            <img
+              className="drink-image"
+              src={`/src/assets/test-img-drink.png`}
+              alt="Aperol Spritz"
+            />
+            <p>Margarita</p>
+          </article>
+          <article className="drink-card">
+            <img
+              className="drink-image"
+              src={`/src/assets/test-img-drink.png`}
+              alt="Aperol Spritz"
+            />
+            <p>Mojito</p>
+          </article>
+          <article className="drink-card">
+            <img
+              className="drink-image"
+              src={`/src/assets/test-img-drink.png`}
+              alt="Aperol Spritz"
+            />
+            <p>Pina Colada</p>
+          </article>
+          <article className="drink-card">
+            <img
+              className="drink-image"
+              src={`/src/assets/test-img-drink.png`}
+              alt="Aperol Spritz"
+            />
+            <p>Old Fashioned</p>
+          </article>
+          <article className="drink-card">
+            <img
+              className="drink-image"
+              src={`/src/assets/test-img-drink.png`}
+              alt="Aperol Spritz"
+            />
+            <p>Whiskey Sour</p>
+          </article>
+        </section>
       </section>
     </main>
   );
