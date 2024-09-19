@@ -17,12 +17,12 @@ export function Footer() {
 
     const year = today.getFullYear();
 
-    return `, ${month} ${day}, ${year}`;
+    return `${month} ${day}, ${year}`;
   };
 
   return (
     <footer>
-      <p>© Super Knights</p>
+      <p>Super Knights ©&ensp;</p>
       <p className="date">{getCurrentDate()}</p>
     </footer>
   );

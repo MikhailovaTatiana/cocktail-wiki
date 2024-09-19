@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/DrinkInfo.css";
+import starIcon from '../assets/icons8-star-50.png';
 interface Cocktail {
   idDrink: string; // id
   strDrink: string; // namn
@@ -42,53 +43,57 @@ const CocktailDetails = () => {
     <main className="info-main">
       <h1 className="info-header">Drink Information</h1>
       <section className="info-card">
-        <aside className="info-aside info-right">
-          <h1 className="drink-header">{cocktail.strDrink}</h1>
-          <img className="info-img" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-          <p>Category: {cocktail.strCategory}</p>
-          <p>Type: {cocktail.strAlcoholic}</p>
-          <p>Glass: {cocktail.strGlass}</p>
-        </aside>
         <aside className="info-aside info-left">
-          <img className="star-in-info" src="src/assets/icons8-star-50.png" alt="star" />
+          <h1 className="drink-header" title={cocktail.strDrink}>{cocktail.strDrink}</h1>
+          <img className="info-img" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+          <h4>Category: <span className="special">{cocktail.strCategory}</span></h4>
+          <h4>Type: <span className="special">{cocktail.strAlcoholic}</span></h4>
+          <h4>Glass: <span className="special">{cocktail.strGlass}</span></h4>
+        </aside>
+
+        <aside className="info-aside info-right">
+          <img className="star-in-info" src={starIcon} alt="star" />
+
           <section className="ingredient-container">
             <h1 className="ingredient-header">Ingredients</h1>
-            <ul>
+            <ul className="scroll-ingr">
               <li>
-                {cocktail.strMeasure1 || ""}
+
+                {cocktail.strMeasure1 || ""}&ensp;
                 <Link to={`/ingredient/${cocktail.strIngredient1}`}>
                   <span className="ingredient">{cocktail.strIngredient1 || ""}</span>
                 </Link>
               </li>
               <li>
-                {cocktail.strMeasure2 || ""}
+                {cocktail.strMeasure2 || ""}&ensp;
                 <Link to={`/ingredient/${cocktail.strIngredient2}`}>
                   <span className="ingredient">{cocktail.strIngredient2 || ""}</span>
                 </Link>
               </li>
               <li>
-                {cocktail.strMeasure3 || ""}
+                {cocktail.strMeasure3 || ""}&ensp;
                 <Link to={`/ingredient/${cocktail.strIngredient3}`}>
                   <span className="ingredient">{cocktail.strIngredient3 || ""}</span>
                 </Link>
               </li>
               <li>
-                {cocktail.strMeasure4 || ""}
+                {cocktail.strMeasure4 || ""}&ensp;
                 <Link to={`/ingredient/${cocktail.strIngredient4}`}>
                   <span className="ingredient">{cocktail.strIngredient4 || ""}</span>
                 </Link>
               </li>
               <li>
-                {cocktail.strMeasure5 || ""}
+                {cocktail.strMeasure5 || ""}&ensp;
                 <Link to={`/ingredient/${cocktail.strIngredient5}`}>
                   <span className="ingredient">{cocktail.strIngredient5 || ""}</span>
                 </Link>
+
               </li>
             </ul>
           </section>
           <section className="instructions-container">
             <h1 className="instructions-header">Instructions</h1>
-            <p>{cocktail.strInstructions}</p>
+            <p className="scroll-instr">{cocktail.strInstructions}</p>
           </section>
           <button onClick={() => Navigate(-1)} className="goback-btn">
             Go back

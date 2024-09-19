@@ -1,4 +1,4 @@
-
+import starIcon from '../assets/icons8-star-50.png';
 import { useState, useEffect } from "react";
 import "../styles/Search.css";
 import LeftArrowIcon from "../assets/left-arrow.png";
@@ -105,7 +105,7 @@ export function Search() {
               <aside className="search-card" key={cocktail.idDrink}>
                 <div className="images">
                   <img className="drink-img" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-                  <img className="star-img" src="src/assets/icon-star.svg" alt="star" />
+                  <img className="star-img" src={starIcon} alt="star" />
                 </div>
                 <h2>{cocktail.strDrink}</h2>
                 <button
