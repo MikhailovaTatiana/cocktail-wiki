@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .ing-header {
@@ -30,7 +31,8 @@
     font-family: 'Elsie Swash Caps';
     font-size: 2rem;
     font-weight: normal;
-    margin-top: 80px;
+    margin-top: 70px;
+    text-align: center;
 }
 
 /* .ingredient-card {
@@ -119,6 +121,18 @@
 }
 
 .drinks-header-grid {
-    display: flex;
-    text-align: center;
+    font-family: 'Elsie Swash Caps';
+    font-weight: normal;
+    position: absolute;
+    margin-top: 120px;
+    /* or relative */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }

@@ -10,11 +10,11 @@ export function Footer() {
   const getCurrentDate = () => {
     const today = new Date();
     const day = today.getDate();
-    let month = today.toLocaleString('default', { month: 'long' });
+    let month = today.toLocaleString("default", { month: "long" });
 
     // Capitalize the first letter of the month
     month = capitalizeFirstLetter(month);
-    
+
     const year = today.getFullYear();
 
     return `, ${month} ${day}, ${year}`;
