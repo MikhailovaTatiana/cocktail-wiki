@@ -3,8 +3,9 @@ import "../styles/Ingredient.css";
 import { useEffect, useState } from "react";
 
 interface IngredientDetail {
-  idIngredient: string; // id/namn
+  idIngredient: string; // id
   strIngredient: string; // ingredient
+  strDescription: string; // description
   strDrinkThumb: string; // bild
 }
 
@@ -31,20 +32,19 @@ export function Ingredient() {
       <section className="ingredient-card">
         <aside className="ingredient-aside ingredient-right">
           <h1 className="ingredient-header">{ingredientName}</h1>
-          <img className="ingredient-image" src={`/src/assets/lime.png`} />
+          <img
+            className="ingredient-image"
+            src={`https://www.thecocktaildb.com/images/ingredients/${ingredient.strIngredient}.png`}
+            alt={ingredient.strIngredient}
+          />
         </aside>
         <aside className="ingredient-aside ingredient-left">
           <section className="ingredient-container">
             <h1 className="description-header">Description</h1>
             <p className="description-text">
-              A lime (from French lime, from Arabic līma, from Persian līmū, "lemon") is a hybrid
-              citrus fruit, which is typically round, lime green, 3–6 centimetres (1.2–2.4 in) in
-              diameter, and contains acidic juice vesicles. There are several species of citrus
-              trees whose fruits are called limes, including the Key lime (Citrus aurantifolia),
-              Persian lime, kaffir lime, and desert lime. Limes are an excellent source of vitamin
-              C, and are often used to accent the flavours of foods and beverages. They are grown
-              year-round. Plants with fruit called "limes" have diverse genetic origins; limes do
-              not form a monophyletic group.
+              {ingredient.strDescription
+                ? ingredient.strDescription
+                : "No description for this ingredient."}
             </p>
           </section>
         </aside>
