@@ -54,3 +54,7 @@
     filter: invert(72%) sepia(95%) saturate(836%) hue-rotate(339deg)
         brightness(103%) contrast(101%);
 }
+
+.search-form {
+    color: white;
+}
