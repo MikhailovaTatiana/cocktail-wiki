@@ -1,69 +1,80 @@
-import '../styles/Navbar.css';
-import starIcon from '../assets/icons8-star-50.png';
-import { Link, useNavigate } from 'react-router-dom';
-import React, { useState, useRef, useEffect } from 'react';
+import "../styles/Navbar.css";
+import starIcon from "../assets/icons8-star-50.png";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useRef} from "react";
 
 const Navbar: React.FC = () => {
+    const [searchTerm, setSearchTerm] = useState<string>("");
+    const [placeholder, setPlaceholder] = useState<string>("🔎");
+    const searchValue = useRef<HTMLInputElement>(null);
+    const navigate = useNavigate(); // Using useNavigate hook for navigation
 
+    const searchCocktail = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
 
+        if (event.target.value.length > 0) {
+            setPlaceholder("");
+        } else {
+            setPlaceholder("🔎");
+        }
+    };
 
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const [cocktails, setCocktails] = useState<unknown[]>([]);
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const [searchPerformed, setSearchPerformed] = useState<boolean>(false); // New state to track search
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if (searchTerm.trim() === "") return;
 
-  const cocktailsPerPage = 10;
+        // Navigate to Search page with search term as a query param
+        navigate(`/search?query=${searchTerm}`);
 
+        // Clear input after search
+        setSearchTerm("");
+        setPlaceholder("🔎");
 
-  const searchValue = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate(); // Using useNavigate hook for navigation
+        if (searchValue.current) {
+            searchValue.current.blur(); // Programmatically blur the input
+        }
+    };
 
-  useEffect(() => {
-    if (searchValue.current) {
-      searchValue.current.focus();
-    }
-  }, []);
+    const handleFocus = () => {
+        setPlaceholder("");
+    };
 
-  const searchCocktail = () => {
-    if (searchValue.current) {
-      setSearchTerm(searchValue.current.value);
-    }
+    const handleBlur = () => {
+      if (searchTerm === "") {
+          setPlaceholder("🔎");
+      }
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (searchTerm.trim() === '') return;
-
-    // Navigate to Search page with search term as a query param
-    navigate(`/search?query=${searchTerm}`);
-  };
-
-  return (
-    <nav className="navbar">
-      <Link to="/" className="navbar-brand">
-        The CocktailDB
-      </Link>
-      <ul className="navbar-list">
-        <li>
-          <Link to="/favorites" className="navbar-link favorite-link">
-            Favorites <img src={starIcon} alt="Star" className="star-icon" />
-          </Link>
-        </li>
-        <li>
-          <form className="search-form" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Search..."
-              className="search-input"
-              onChange={searchCocktail}
-              ref={searchValue}
-              value={searchTerm}
-            />
-          </form>
-        </li>
-      </ul>
-    </nav>
-  );
+    return (
+        <nav className="navbar">
+            <Link to="/" className="navbar-brand">
+                The CocktailDB
+            </Link>
+            <ul className="navbar-list">
+                <li>
+                    <Link to="/favorites" className="navbar-link favorite-link">
+                        Favorites{" "}
+                        <img src={starIcon} alt="Star" className="star-icon" />
+                    </Link>
+                </li>
+                <li>
+                    <form className="search-form" onSubmit={handleSubmit}>
+                        Search{" "}
+                        <input
+                            type="text"
+                            placeholder={placeholder}
+                            className="search-input"
+                            onChange={searchCocktail}
+                            ref={searchValue}
+                            value={searchTerm}
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
+                        />
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    );
 };
 
 export default Navbar;
