@@ -1,6 +1,6 @@
-import React from 'react';
-import '../styles/Favorites.css';
-import { useFavorites } from '../context/FavoritesContext';
+import React from "react";
+import "../styles/Favorites.css";
+import { useFavorites } from "../context/FavoritesContext";
 
 const Favorites = () => {
   const { favorites, removeFavorite } = useFavorites(); // Hämta favoriter och removeFavorite från Context
@@ -28,5 +28,3 @@ const Favorites = () => {
 };
 
 export default Favorites;
-
-

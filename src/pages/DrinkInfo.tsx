@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/DrinkInfo.css";
 import starIcon from '../assets/icons8-star-50.png';
 interface Cocktail {
@@ -58,24 +58,36 @@ const CocktailDetails = () => {
             <h1 className="ingredient-header">Ingredients</h1>
             <ul className="scroll-ingr">
               <li>
+
                 {cocktail.strMeasure1 || ""}&ensp;
-                <span className="ingredient">{cocktail.strIngredient1 || ""}</span>
+                <Link to={`/ingredient/${cocktail.strIngredient1}`}>
+                  <span className="ingredient">{cocktail.strIngredient1 || ""}</span>
+                </Link>
               </li>
               <li>
                 {cocktail.strMeasure2 || ""}&ensp;
-                <span className="ingredient">{cocktail.strIngredient2 || ""}</span>
+                <Link to={`/ingredient/${cocktail.strIngredient2}`}>
+                  <span className="ingredient">{cocktail.strIngredient2 || ""}</span>
+                </Link>
               </li>
               <li>
                 {cocktail.strMeasure3 || ""}&ensp;
-                <span className="ingredient">{cocktail.strIngredient3 || ""}</span>
+                <Link to={`/ingredient/${cocktail.strIngredient3}`}>
+                  <span className="ingredient">{cocktail.strIngredient3 || ""}</span>
+                </Link>
               </li>
               <li>
                 {cocktail.strMeasure4 || ""}&ensp;
-                <span className="ingredient">{cocktail.strIngredient4 || ""}</span>
+                <Link to={`/ingredient/${cocktail.strIngredient4}`}>
+                  <span className="ingredient">{cocktail.strIngredient4 || ""}</span>
+                </Link>
               </li>
               <li>
                 {cocktail.strMeasure5 || ""}&ensp;
-                <span className="ingredient">{cocktail.strIngredient5 || ""}</span>
+                <Link to={`/ingredient/${cocktail.strIngredient5}`}>
+                  <span className="ingredient">{cocktail.strIngredient5 || ""}</span>
+                </Link>
+
               </li>
             </ul>
           </section>
