@@ -123,8 +123,4 @@
 .drinks-header-grid {
     font-family: 'Elsie Swash Caps';
     font-weight: normal;
-    margin-top: 120px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
 }
