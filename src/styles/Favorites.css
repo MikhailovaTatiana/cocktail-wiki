@@ -1,3 +1,137 @@
+.main-favorites {
+  background-image: url('../assets/bg.png');
+  width: 100%;
+  min-height: 93vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 1.2rem;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 20px;
+  }
+  
+  .arrow-btn {
+    background: none;
+    border: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  
+  .arrow-btn img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .pages {
+    font-family: 'Elsie Swash Caps', serif;
+    color: white;
+  }
+
+  
+
+.cocktail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+
+.cocktail-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.cocktail-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.cocktail-card h3 {
+  margin: 0.8rem 0;
+  font-family: 'Elsie Swash Caps', serif;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #333;
+  width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap; 
+ /* 
+  */
+}
+
+.remove-btn {
+  background-color: #ffc8ff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: 'Elsie Swash Caps', serif;
+  font-size: 1rem;
+  margin-top: 0.8rem;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn:hover {
+  background-color: #f792f7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(45deg, #c9ffbf, #ffafbd);
@@ -6,15 +140,17 @@
     align-items: center;
     height: 100vh;
     margin: 0;
-}
+} 
 
-.container {
+
+
+ .container {
     text-align: center;
     max-width: 900px;
     width: 100%;
-}
+}  */
 
-h1 {
+/* h1 {
     font-size: 2rem;
     margin-bottom: 20px;
     color: white;
@@ -63,4 +199,5 @@ h1 {
 
 .card button:hover {
     background-color: #b067b0;
-} */
+} 
+ */
