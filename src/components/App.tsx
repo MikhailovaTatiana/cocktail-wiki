@@ -4,7 +4,6 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import { FavoritesProvider } from '../context/FavoritesContext';
 
-
 function App() {
   return (
     <>

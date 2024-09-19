@@ -1,9 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@400;900&display=swap');
-
 .info-main {
     background-image: url("../assets/bg.png");
-    background-position: center;
-    background-size: cover;
     width: 100vw;
     height: 93vh;
     display: flex;
@@ -12,44 +8,42 @@
 }
 
 .info-header {
-    font-family: 'Elsie Swash Caps', serif;
     color: white;
     font-weight: 500;
     margin: 2rem 0;
 }
 
 .drink-header {
-    font-family: 'Elsie Swash Caps',
-        serif;
     font-weight: normal;
     font-size: 2rem;
-    margin: 10px;
+    margin-top: 1rem;
+    height: 2rem;
+    width: 80%;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-align: center;
 }
 
-.ingredient-header {
-    font-family: 'Elsie Swash Caps';
-    font-size: 2rem;
-    font-weight: normal;
-    padding-left: 0;
-    margin-left: 0;
+.drink-header:hover {
+    cursor: help;
 }
 
+.ingredient-header,
 .instructions-header {
-    font-family: 'Elsie Swash Caps';
     font-size: 2rem;
     font-weight: normal;
-    padding-left: 0;
-    margin-left: 0;
+    margin-bottom: .5rem;
 }
 
 .info-card {
     display: flex;
     width: 50%;
-    aspect-ratio: 4 / 2.5;
+    height: 65vh;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
     background-color: azure;
-    border-radius: 5px;
+    border-radius: 25px;
 }
 
 .info-aside {
@@ -61,20 +55,18 @@
 .info-right {
     flex: 1;
     justify-content: space-around;
-    padding: .5rem;
 }
 
 .info-left {
     flex: 1;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .info-img {
-    width: 90%;
+    width: 85%;
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
-    border-radius: 3px;
 }
 
 .star-in-info {
@@ -95,6 +87,11 @@ li {
     margin: 6px;
 }
 
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
 .ingredient:hover {
     cursor: pointer;
     background-color: #ff975e;
@@ -106,23 +103,15 @@ li {
     align-items: center;
 }
 
-.ingredient-container+.instructions-container {
-    margin-top: 60px;
-}
-
 .goback-btn {
-    margin-bottom: 6rem;
     background-color: #ffc8ff;
     border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 10px;
-    margin: 10px;
-    margin-top: 50px;
     border-radius: 10px;
     font-size: 2rem;
-    font-family: 'Elsie Swash Caps',
-        serif;
     cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 .goback-btn:hover {
@@ -133,4 +122,35 @@ li {
 .goback-btn:active {
     transform: translateY(1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-ingr {
+    max-height: 8rem;
+    overflow-y: scroll;
+    outline: 3px dashed #ace4d3;
+}
+
+.scroll-instr {
+    width: 85%;
+    max-height: 4rem;
+    overflow-y: scroll;
+    padding: 5px;
+    outline: 3px dashed #ace4d3;
+}
+
+.scroll-instr::-webkit-scrollbar,
+.scroll-ingr::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.scroll-instr::-webkit-scrollbar-thumb,
+.scroll-ingr::-webkit-scrollbar-thumb {
+    background-color: #ace4d3;
+}
+
+.special {
+    font-weight: 500;
+    font-style: italic;
 }

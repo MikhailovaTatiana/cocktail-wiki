@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Elsie+Swash+Caps:wght@400;900&display=swap');
+
+.ingredient-main {
+    background-image: url("../assets/bg.png");
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    min-height: 93vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: hidden;
+    box-sizing: border-box;
+}
+
+.ing-header {
+    font-family: 'Elsie Swash Caps', serif;
+    color: white;
+    font-weight: 500;
+    margin: 2rem 0;
+}
+
+.drink-header {
+    font-family: 'Elsie Swash Caps',
+        serif;
+    font-weight: normal;
+    font-size: 2rem;
+    margin: 10px;
+}
+
+.description-header {
+    font-family: 'Elsie Swash Caps';
+    font-size: 2rem;
+    font-weight: normal;
+    margin-top: 70px;
+    text-align: center;
+}
+
+.ingredient-card {
+    background-color: azure;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 5px;
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 190px;
+}
+
+.ingredient-aside {
+    flex: 1;
+    margin: 10px;
+}
+
+/* .ingredient-aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.ingredient-right {
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* .ingredient-right {
+    flex: 1;
+    justify-content: space-evenly;
+    padding: .5rem;
+}
+ */
+.ingredient-left {
+    flex: 2;
+}
+
+/* .ingredient-left {
+    flex: 1;
+    justify-content: space-around;
+    margin-left: 10px;
+} */
+
+.ingredient-image {
+    width: 50%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 3px;
+}
+
+.description-text {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.2;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.grid-drinks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.drink-card {
+    border-radius: 8px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drink-card-name {
+    font-family: 'Elsie Swash Caps';
+    font-size: 1.2rem;
+}
+
+.drink-image {
+    width: 50%;
+    border-radius: 8px;
+}
+
+.drinks-header-grid {
+    font-family: 'Elsie Swash Caps';
+    font-weight: normal;
+}

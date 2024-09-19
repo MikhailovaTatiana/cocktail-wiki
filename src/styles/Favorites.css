@@ -1,5 +1,5 @@
 .main-favorites {
-  background-image: url('../assets/bg.png');
+  background-image: url('../assets/cover.png');
   width: 100%;
   min-height: 93vh;
   display: flex;
@@ -7,6 +7,17 @@
   align-items: flex-start;
   padding-top: 1.2rem;
 }
+
+.favorites-main {
+    background-image: url("../assets/cover.png");
+    width: 100vw;
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+} 
 
 .content-container {
     display: flex;
@@ -43,7 +54,6 @@
     color: white;
   }
 
-  
 
 .cocktail-grid {
   display: grid;
@@ -79,8 +89,6 @@
   text-overflow: ellipsis;
   overflow: hidden; 
   white-space: nowrap; 
- /* 
-  */
 }
 
 .remove-btn {
@@ -100,67 +108,17 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #c9ffbf, #ffafbd);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-} 
-
-
-
+/*
  .container {
     text-align: center;
     max-width: 900px;
     width: 100%;
-}  */
-
-/* h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: white;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-items: center;
+.fav-header {
+    margin: 0.5rem 0;
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 .card {
