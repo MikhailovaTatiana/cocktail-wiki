@@ -4,12 +4,13 @@
     background-image: url("../assets/bg.png");
     background-position: center;
     background-size: cover;
-    width: 100vw;
+    width: 100%;
     min-height: 93vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-x: hidden;
+    overflow-y: hidden;
+    box-sizing: border-box;
 }
 
 .ing-header {
@@ -35,25 +36,17 @@
     text-align: center;
 }
 
-/* .ingredient-card {
-    display: flex;
-    width: 60%;
-    height: 500px;
-    background-color: azure;
-    
-} */
 .ingredient-card {
     background-color: azure;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
     border-radius: 5px;
     width: 60%;
-    height: 1000px;
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 190px;
-    /* Adds space between ingredient section and grid */
 }
 
 .ingredient-aside {
@@ -97,6 +90,8 @@
 }
 
 .description-text {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.2;
     margin-right: 20px;
     margin-top: 10px;
 }
@@ -115,6 +110,11 @@
     align-items: center;
 }
 
+.drink-card-name {
+    font-family: 'Elsie Swash Caps';
+    font-size: 1.2rem;
+}
+
 .drink-image {
     width: 50%;
     border-radius: 8px;
@@ -127,10 +127,4 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-}
-
-footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
 }
