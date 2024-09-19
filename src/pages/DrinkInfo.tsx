@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/DrinkInfo.css";
+import starIcon from '../assets/icons8-star-50.png';
 interface Cocktail {
   idDrink: string; // id
   strDrink: string; // namn
@@ -49,8 +50,10 @@ const CocktailDetails = () => {
           <h4>Type: <span className="special">{cocktail.strAlcoholic}</span></h4>
           <h4>Glass: <span className="special">{cocktail.strGlass}</span></h4>
         </aside>
+
         <aside className="info-aside info-right">
-          <img className="star-in-info" src="src/assets/icons8-star-50.png" alt="star" />
+          <img className="star-in-info" src={starIcon} alt="star" />
+
           <section className="ingredient-container">
             <h1 className="ingredient-header">Ingredients</h1>
             <ul className="scroll-ingr">
