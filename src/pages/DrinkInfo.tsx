@@ -58,23 +58,23 @@ const CocktailDetails = () => {
             <h1 className="ingredient-header">Ingredients</h1>
             <ul className="scroll-ingr">
               <li>
-                {cocktail.strMeasure1 || ""}
+                {cocktail.strMeasure1 || ""}&ensp;
                 <span className="ingredient">{cocktail.strIngredient1 || ""}</span>
               </li>
               <li>
-                {cocktail.strMeasure2 || ""}
+                {cocktail.strMeasure2 || ""}&ensp;
                 <span className="ingredient">{cocktail.strIngredient2 || ""}</span>
               </li>
               <li>
-                {cocktail.strMeasure3 || ""}
+                {cocktail.strMeasure3 || ""}&ensp;
                 <span className="ingredient">{cocktail.strIngredient3 || ""}</span>
               </li>
               <li>
-                {cocktail.strMeasure4 || ""}
+                {cocktail.strMeasure4 || ""}&ensp;
                 <span className="ingredient">{cocktail.strIngredient4 || ""}</span>
               </li>
               <li>
-                {cocktail.strMeasure5 || ""}
+                {cocktail.strMeasure5 || ""}&ensp;
                 <span className="ingredient">{cocktail.strIngredient5 || ""}</span>
               </li>
             </ul>
