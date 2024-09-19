@@ -43,18 +43,20 @@ const CocktailDetails = () => {
     <main className="info-main">
       <h1 className="info-header">Drink Information</h1>
       <section className="info-card">
-        <aside className="info-aside info-right">
-          <h1 className="drink-header">{cocktail.strDrink}</h1>
-          <img className="info-img" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-          <p>Category: {cocktail.strCategory}</p>
-          <p>Type: {cocktail.strAlcoholic}</p>
-          <p>Glass: {cocktail.strGlass}</p>
-        </aside>
         <aside className="info-aside info-left">
+          <h1 className="drink-header" title={cocktail.strDrink}>{cocktail.strDrink}</h1>
+          <img className="info-img" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
+          <h4>Category: <span className="special">{cocktail.strCategory}</span></h4>
+          <h4>Type: <span className="special">{cocktail.strAlcoholic}</span></h4>
+          <h4>Glass: <span className="special">{cocktail.strGlass}</span></h4>
+        </aside>
+
+        <aside className="info-aside info-right">
           <img className="star-in-info" src={starIcon} alt="star" />
+
           <section className="ingredient-container">
             <h1 className="ingredient-header">Ingredients</h1>
-            <ul>
+            <ul className="scroll-ingr">
               <li>
                 {cocktail.strMeasure1 || ""}
                 <span className="ingredient">{cocktail.strIngredient1 || ""}</span>
@@ -79,7 +81,7 @@ const CocktailDetails = () => {
           </section>
           <section className="instructions-container">
             <h1 className="instructions-header">Instructions</h1>
-            <p>{cocktail.strInstructions}</p>
+            <p className="scroll-instr">{cocktail.strInstructions}</p>
           </section>
           <button onClick={() => Navigate(-1)} className="goback-btn">
             Go back
