@@ -1,0 +1,28 @@
+.favorite-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: flex-end; /* Align to the right */
+  }
+  
+  .star-icon {
+    width: 24px;
+    height: 24px;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    fill: rgb(212, 9, 9); /* Standard color for unfavorited star */
+  }
+  
+  .star-icon.active {
+    fill: rgb(0, 76, 255); /* Golden color for favorited star */
+    filter: brightness(1.5); /* Highlight active state */
+  }
+  
+  /* Hover effects */
+  .favorite-button:hover .star-icon {
+    fill: yellow;
+    filter: brightness(1.2);
+    transform: scale(1.1);
+  }

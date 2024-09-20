@@ -1,7 +1,8 @@
-import starIcon from '../assets/icons8-star-50.png';
+// import starIcon from '../assets/icons8-star-50.png';
 import { useEffect, useState } from "react";
 import "../styles/Home.css";
 import { useNavigate } from "react-router-dom";
+import FavoriteButton from './FavoriteButton';
 
 // api tag
 interface Cocktail {
@@ -46,7 +47,11 @@ const CocktailCard = () => {
           <>
             <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} className="img-card" />
             <aside className="aside-card">
-              <img className="star" src={starIcon} alt="star" />
+              {/* <img className="star" src={starIcon} alt="star" /> */}
+              <FavoriteButton
+                drinkName={cocktail.strDrink}
+                drinkImgUrl={cocktail.strDrinkThumb}
+              />
               <h2 className="drink-name">{cocktail.strDrink}</h2>
               <button
                 onClick={() => Navigate(`/cocktail/${cocktail.idDrink}`)}
