@@ -1,10 +1,10 @@
-import starIcon from '../assets/icons8-star-50.png';
+// import starIcon from '../assets/icons8-star-50.png';
 import { useState, useEffect } from "react";
 import "../styles/Search.css";
 import LeftArrowIcon from "../assets/left-arrow.png";
 import RightArrowIcon from "../assets/right-arrow.png";
 import { useLocation, useNavigate } from "react-router-dom";
-// import FavoriteButton from '../components/FavoriteButton'; // Import the FavoriteButton component
+import FavoriteButton from '../components/FavoriteButton'; // Import the FavoriteButton component
 
 export function Search() {
   const [cocktails, setCocktails] = useState<any[]>([]);
@@ -105,7 +105,11 @@ export function Search() {
               <aside className="search-card" key={cocktail.idDrink}>
                 <div className="images">
                   <img className="drink-img" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-                  <img className="star-img" src={starIcon} alt="star" />
+                  {/* <img className="star-img" src={starIcon} alt="star" /> */}
+                  <FavoriteButton
+                    drinkName={cocktail.strDrink}
+                    drinkImgUrl={cocktail.strDrinkThumb}
+                  />
                 </div>
                 <h2>{cocktail.strDrink}</h2>
                 <button

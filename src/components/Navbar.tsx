@@ -1,7 +1,8 @@
 import "../styles/Navbar.css";
-import starIcon from "../assets/icons8-star-50.png";
+// import starIcon from "../assets/icons8-star-50.png";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useRef} from "react";
+import FavoriteButton from "./FavoriteButton";
 
 const Navbar: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState<string>("");
@@ -52,9 +53,13 @@ const Navbar: React.FC = () => {
             </Link>
             <ul className="navbar-list">
                 <li>
-                    <Link to="/favorites" className="navbar-link favorite-link">
+                    {/* <Link to="/favorites" className="navbar-link favorite-link">
                         Favorites{" "}
                         <img src={starIcon} alt="Star" className="star-icon" />
+                    </Link> */}
+                    <Link to="/favorites" className="navbar-link favorite-link">
+                        Favorites
+                        <FavoriteButton drinkName="" drinkImgUrl="" /> {/* Add the FavoriteButton component */}
                     </Link>
                 </li>
                 <li>

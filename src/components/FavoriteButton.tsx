@@ -1,37 +1,45 @@
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useFavorites } from '../context/FavoritesContext';
-import starIcon from '../assets/icons8-star-50.png'; // Adjust path as needed
+import "../styles/FavoriteButton.css";
 
 interface FavoriteButtonProps {
-  drinkName: string;
-  drinkImgUrl: string;
+  drinkName?: string; // Optional, for Navbar case
+  drinkImgUrl?: string; // Optional, for Navbar case
 }
 
 const FavoriteButton: React.FC<FavoriteButtonProps> = ({ drinkName, drinkImgUrl }) => {
-  const location = useLocation();
-  const navigate = useNavigate();
   const { favorites, setFavorites } = useFavorites();
+  const navigate = useNavigate(); // For navigation
 
-  const isFavorite = favorites.includes(drinkName);
+  // Check if the drink is already in favorites
+  const isFavorite = drinkName && favorites.some((drink) => drink.name === drinkName);
 
   const handleClick = () => {
-    if (location.pathname === '/search') {
-      // On the Search page: add/remove favorite
+    if (drinkName && drinkImgUrl) {
+      // Handle adding/removing favorites if drinkName and drinkImgUrl are provided
       if (isFavorite) {
-        setFavorites(favorites.filter(name => name !== drinkName));
+        setFavorites(favorites.filter((drink) => drink.name !== drinkName));
       } else {
-        setFavorites([...favorites, drinkName]);
+        setFavorites([...favorites, { name: drinkName, imgUrl: drinkImgUrl }]);
       }
-    } else if (location.pathname === '/') {
-      // On the Navbar: redirect to Favorites page
+    } else {
+      // Redirect to the Favorites page if no drinkName and drinkImgUrl are provided
       navigate('/favorites');
     }
   };
 
   return (
     <button className="favorite-button" onClick={handleClick}>
-      <img src={starIcon} alt="Favorite" className={isFavorite ? 'star-icon active' : 'star-icon'} />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        className={isFavorite ? 'star-icon active' : 'star-icon'}
+      >
+        <path d="M12 17.27L18.18 21 16.54 14.62 22 10.27 15.81 9.63 12 3 8.19 9.63 2 10.27 7.46 14.62 5.82 21 12 17.27z" />
+      </svg>
     </button>
   );
 };

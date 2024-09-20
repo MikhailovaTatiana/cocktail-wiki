@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/DrinkInfo.css";
-import starIcon from '../assets/icons8-star-50.png';
+// import starIcon from '../assets/icons8-star-50.png';
+import FavoriteButton from "../components/FavoriteButton"; // Importera FavoriteButton-komponenten
 interface Cocktail {
   idDrink: string; // id
   strDrink: string; // namn
@@ -52,8 +53,11 @@ const CocktailDetails = () => {
         </aside>
 
         <aside className="info-aside info-right">
-          <img className="star-in-info" src={starIcon} alt="star" />
-
+          {/* <img className="star-in-info" src={starIcon} alt="star" /> */}
+          <FavoriteButton
+            drinkName={cocktail.strDrink} // Skickar drinkens namn som prop
+            drinkImgUrl={cocktail.strDrinkThumb} // Skickar drinkens bild-URL som prop
+          />
           <section className="ingredient-container">
             <h1 className="ingredient-header">Ingredients</h1>
             <ul className="scroll-ingr">
