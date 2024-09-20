@@ -39,7 +39,7 @@
   .arrow-btn {
     background: none;
     border: none;
-    cursor: not-allowed;
+    cursor: pointer;
     opacity: 0.5;
   }
 
