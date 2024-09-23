@@ -68,7 +68,6 @@ export function Ingredient() {
         <button onClick={() => Navigate(-1)} className="gobackingredient-btn">
           Go back
         </button>
-
         <section className="drinks-container">
           <h1 className="drinks-header-grid">Drinks</h1>
           <section className="grid-drinks">
