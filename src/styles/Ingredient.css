@@ -123,4 +123,20 @@
 .drinks-header-grid {
     font-family: 'Elsie Swash Caps';
     font-weight: normal;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gobackingredient-btn {
+    background-color: #ffc8ff;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 10px;
+    margin-bottom: 1rem;
+    height: 70px;
 }
