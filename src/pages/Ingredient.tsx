@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/Ingredient.css";
 import { useEffect, useState } from "react";
 
@@ -18,6 +18,7 @@ export function Ingredient() {
   const { ingredientName } = useParams<{ ingredientName: string }>();
   const [ingredient, setIngredient] = useState<IngredientDetail | null>(null);
   const [drinks, setDrinks] = useState<Drink[]>([]);
+  const Navigate = useNavigate();
 
   // Fetch ingredient details
   useEffect(() => {
@@ -64,18 +65,23 @@ export function Ingredient() {
           </section>
         </aside>
         {/* grid drinks */}
-        <h1 className="drinks-header-grid">Drinks</h1>
-        <section className="grid-drinks">
-          {drinks.length > 0 ? (
-            drinks.map((drink) => (
-              <article className="drink-card">
-                <img className="drink-image" src={drink.strDrinkThumb} alt={drink.strDrink} />
-                <p className="drink-card-name">{drink.strDrink}</p>
-              </article>
-            ))
-          ) : (
-            <p>No drinks found.</p>
-          )}
+        <button onClick={() => Navigate(-1)} className="gobackingredient-btn">
+          Go back
+        </button>
+        <section className="drinks-container">
+          <h1 className="drinks-header-grid">Drinks</h1>
+          <section className="grid-drinks">
+            {drinks.length > 0 ? (
+              drinks.map((drink) => (
+                <article className="drink-card">
+                  <img className="drink-image" src={drink.strDrinkThumb} alt={drink.strDrink} />
+                  <p className="drink-card-name">{drink.strDrink}</p>
+                </article>
+              ))
+            ) : (
+              <p>No drinks found.</p>
+            )}
+          </section>
         </section>
       </section>
     </main>
