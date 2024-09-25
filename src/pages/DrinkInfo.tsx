@@ -3,26 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/DrinkInfo.css";
 // import starIcon from '../assets/icons8-star-50.png';
 import FavoriteButton from "../components/FavoriteButton"; // Importera FavoriteButton-komponenten
-interface Cocktail {
-  idDrink: string; // id
-  strDrink: string; // namn
-  strDrinkThumb: string; // bild
-  strCategory: string; // kategori
-  strAlcoholic: string; // alkohol
-  strTags: string; // taggar
-  strInstructions: string; // instruktion
-  strIngredient1: string; // ingrediens
-  strIngredient2: string;
-  strIngredient3: string;
-  strIngredient4: string;
-  strIngredient5: string;
-  strMeasure1: string; // mått
-  strMeasure2: string;
-  strMeasure3: string;
-  strMeasure4: string;
-  strMeasure5: string;
-  strGlass: string; // glas
-}
+import { Cocktail } from "../interfaces";
 
 const CocktailDetails = () => {
   const { id } = useParams<{ id: string }>(); // get cocktail id

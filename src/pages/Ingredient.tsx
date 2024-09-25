@@ -1,23 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/Ingredient.css";
 import { useEffect, useState } from "react";
-
-interface IngredientDetail {
-  idIngredient: string;
-  strIngredient: string;
-  strDescription: string;
-}
-
-interface Drink {
-  idDrink: string;
-  strDrink: string;
-  strDrinkThumb: string;
-}
+import { Cocktail } from "../interfaces";
 
 export function Ingredient() {
   const { ingredientName } = useParams<{ ingredientName: string }>();
-  const [ingredient, setIngredient] = useState<IngredientDetail | null>(null);
-  const [drinks, setDrinks] = useState<Drink[]>([]);
+  const [ingredient, setIngredient] = useState<Cocktail | null>(null);
+  const [drinks, setDrinks] = useState<Cocktail[]>([]);
   const Navigate = useNavigate();
 
   // Fetch ingredient details
