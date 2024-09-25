@@ -29,7 +29,7 @@
 }
 
 .navbar-link {
-    text-decoration: none;
+    text-decoration: none; 
     color: white;
 }
 
@@ -47,13 +47,13 @@
     justify-content: center;
 }
 
-.star-icon {
+/* .star-icon {
     width: 20px;
     height: 20px;
     margin-left: 10px;
     filter: invert(72%) sepia(95%) saturate(836%) hue-rotate(339deg)
         brightness(103%) contrast(101%);
-}
+} */
 
 .search-form {
     color: white;

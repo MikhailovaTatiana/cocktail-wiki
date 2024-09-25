@@ -1,7 +1,7 @@
 // import starIcon from '../assets/icons8-star-50.png';
-import { useEffect, useState } from "react";
-import "../styles/Home.css";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import '../styles/Home.css';
+import { useNavigate } from 'react-router-dom';
 import FavoriteButton from './FavoriteButton';
 
 // api tag
@@ -20,11 +20,11 @@ const CocktailCard = () => {
   const fetchCocktail = async () => {
     setLoading(true);
     try {
-      const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
+      const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
       const data = await response.json();
       setCocktail(data.drinks[0]);
     } catch (error) {
-      console.error("Error fetching the cocktail:", error);
+      console.error('Error fetching the cocktail:', error);
     } finally {
       setLoading(false);
     }
@@ -47,11 +47,12 @@ const CocktailCard = () => {
           <>
             <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} className="img-card" />
             <aside className="aside-card">
-              {/* <img className="star" src={starIcon} alt="star" /> */}
-              <FavoriteButton
-                drinkName={cocktail.strDrink}
-                drinkImgUrl={cocktail.strDrinkThumb}
-              />
+              <div className="star">
+                <FavoriteButton
+                  drinkName={cocktail.strDrink}
+                  drinkImgUrl={cocktail.strDrinkThumb}
+                />
+              </div>
               <h2 className="drink-name">{cocktail.strDrink}</h2>
               <button
                 onClick={() => Navigate(`/cocktail/${cocktail.idDrink}`)}
