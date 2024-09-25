@@ -1,5 +1,4 @@
 import '../styles/Navbar.css';
-// import starIcon from "../assets/icons8-star-50.png";
 import { Link, useNavigate } from 'react-router-dom';
 import React, { useState, useRef } from 'react';
 import FavoriteButton from './FavoriteButton';
@@ -31,6 +30,11 @@ const Navbar: React.FC = () => {
     setSearchTerm('');
     setPlaceholder('🔎');
 
+    // Force a page refresh after search with filters
+    setTimeout(() => {
+        window.location.reload();
+    }, 100); // Add a small delay
+
     if (searchValue.current) {
       searchValue.current.blur(); // Programmatically blur the input
     }
@@ -46,40 +50,37 @@ const Navbar: React.FC = () => {
     }
   };
 
-  return (
-    <nav className="navbar">
-      <Link to="/" className="navbar-brand">
-        The CocktailDB
-      </Link>
-      <ul className="navbar-list">
-        <li>
-          {/* <Link to="/favorites" className="navbar-link favorite-link">
+    return (
+        <nav className="navbar">
+            <Link to="/" className="navbar-brand">
+                The CocktailDB
+            </Link>
+            <ul className="navbar-list">
+                <li>
+                    <Link to="/favorites" className="navbar-link favorite-link">
                         Favorites{" "}
-                        <img src={starIcon} alt="Star" className="star-icon" />
-                    </Link> */}
-          <Link to="/favorites" className="navbar-link favorite-link">
-            Favorites <FavoriteButton drinkName="" drinkImgUrl="" />
-            {/* Add the FavoriteButton component */}
-          </Link>
-        </li>
-        <li>
-          <form className="search-form" onSubmit={handleSubmit}>
-            Search{' '}
-            <input
-              type="text"
-              placeholder={placeholder}
-              className="search-input"
-              onChange={searchCocktail}
-              ref={searchValue}
-              value={searchTerm}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-            />
-          </form>
-        </li>
-      </ul>
-    </nav>
-  );
+                        <FavoriteButton drinkName="" drinkImgUrl="" />
+                        {/* Add the FavoriteButton component */}
+                    </Link>
+                </li>
+                <li>
+                    <form className="search-form" onSubmit={handleSubmit}>
+                        Search{" "}
+                        <input
+                            type="text"
+                            placeholder={placeholder}
+                            className="search-input"
+                            onChange={searchCocktail}
+                            ref={searchValue}
+                            value={searchTerm}
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
+                        />
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    );
 };
 
 export default Navbar;

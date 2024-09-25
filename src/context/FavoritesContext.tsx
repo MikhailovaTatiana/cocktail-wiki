@@ -1,13 +1,9 @@
-import { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
-
-interface FavoriteDrink {
-  name: string;
-  imgUrl: string;
-}
+import { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
+import { Cocktail } from "../interfaces";
 
 interface FavoritesContextType {
-  favorites: FavoriteDrink[];
-  setFavorites: Dispatch<SetStateAction<FavoriteDrink[]>>;
+  favorites: Cocktail[];
+  setFavorites: Dispatch<SetStateAction<Cocktail[]>>;
   removeFavorite: (drinkName: string) => void;
 }
 
@@ -18,10 +14,10 @@ interface FavoritesProviderProps {
 }
 
 export const FavoritesProvider = ({ children }: FavoritesProviderProps) => {
-  const [favorites, setFavorites] = useState<FavoriteDrink[]>([]);
+  const [favorites, setFavorites] = useState<Cocktail[]>([]);
 
   const removeFavorite = (drinkName: string) => {
-    setFavorites(favorites.filter(drink => drink.name !== drinkName));
+    setFavorites(favorites.filter((drink) => drink.name !== drinkName));
   };
 
   return (
@@ -35,7 +31,7 @@ export const useFavorites = () => {
   const context = useContext(FavoritesContext);
 
   if (!context) {
-    throw new Error('useFavorites must be used within a FavoritesProvider');
+    throw new Error("useFavorites must be used within a FavoritesProvider");
   }
 
   return context;
