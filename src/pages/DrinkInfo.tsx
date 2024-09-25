@@ -30,7 +30,7 @@ const CocktailDetails = () => {
   const Navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch drink details by id
+    // Fetch cocktail details by id
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${id}`)
       .then((response) => response.json())
       .then((data) => {

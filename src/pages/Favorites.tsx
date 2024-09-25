@@ -2,7 +2,7 @@ import "../styles/Favorites.css";
 import { useFavorites } from "../context/FavoritesContext";
 import LeftArrowIcon from "../assets/left-arrow.png";
 import RightArrowIcon from "../assets/right-arrow.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Favorites = () => {
   const { favorites, removeFavorite } = useFavorites(); // Hämta favoriter och removeFavorite från Context
