@@ -1,10 +1,9 @@
-// import starIcon from '../assets/icons8-star-50.png';
 import { useEffect, useState } from "react";
 import "../styles/Home.css";
 import { useNavigate } from "react-router-dom";
-import FavoriteButton from './FavoriteButton';
+import FavoriteButton from "../components/FavoriteButton"; // Importera FavoriteButton-komponenten
 
-// api tag
+// API tag
 interface Cocktail {
   idDrink: string;
   strDrink: string;
@@ -12,49 +11,71 @@ interface Cocktail {
 }
 
 const CocktailCard = () => {
-  const [cocktail, setCocktail] = useState<Cocktail | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const Navigate = useNavigate(); // direct to another page
+  const [cocktail, setCocktail] = useState<Cocktail | null>(null); // Huvudcocktail som visas
+  const [nextCocktail, setNextCocktail] = useState<Cocktail | null>(null); // Nästa cocktail som pre-fetchas
+  const [loading, setLoading] = useState<boolean>(true); // Visar laddning
+  const navigate = useNavigate(); // Används för att navigera till en annan sida
 
-  // Function to fetch a random cocktail
+  // Funktion för att hämta en slumpmässig cocktail
   const fetchCocktail = async () => {
-    setLoading(true);
+    setLoading(true); // Sätt loading till true medan vi hämtar
     try {
       const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
       const data = await response.json();
-      setCocktail(data.drinks[0]);
+      setCocktail(data.drinks[0]); // Sätt den hämtade cocktailen till nuvarande cocktail
     } catch (error) {
       console.error("Error fetching the cocktail:", error);
     } finally {
-      setLoading(false);
+      setLoading(false); // Avsluta laddningen
     }
   };
 
-  // Fetch a cocktail when the component mounts
+  // Ny funktion: Pre-fetchar nästa cocktail i bakgrunden
+  const preFetchNextCocktail = async () => {
+    try {
+      const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
+      const data = await response.json();
+      setNextCocktail(data.drinks[0]); // Sparar den förhämtade cocktailen
+    } catch (error) {
+      console.error("Error pre-fetching the next cocktail:", error);
+    }
+  };
+
+  // När komponenten monteras, hämta en cocktail och pre-fetcha nästa
   useEffect(() => {
-    fetchCocktail();
+    fetchCocktail(); // Hämta första cocktail
+    preFetchNextCocktail(); // Pre-fetch nästa cocktail för snabbare laddning
   }, []);
+
+  // När användaren klickar på "Random Cocktail", visa den förhämtade cocktailen
+  const handleRandomClick = () => {
+    if (nextCocktail) {
+      setCocktail(nextCocktail); // Använd den förhämtade cocktailen
+      preFetchNextCocktail(); // Pre-fetch nästa igen
+    } else {
+      fetchCocktail(); // Om pre-fetch misslyckas, fallback till vanlig fetch
+    }
+  };
 
   return (
     <main className="home-main">
-      <button className="random-btn" onClick={fetchCocktail}>
+      <button className="random-btn" onClick={handleRandomClick}>
         Random Cocktail
       </button>
       <section className="card">
         {loading ? (
-          <div>Loading...</div>
+          <div>Loading...</div> // Visa laddning tills cocktailen har hämtats
         ) : cocktail ? (
           <>
             <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} className="img-card" />
             <aside className="aside-card">
-              {/* <img className="star" src={starIcon} alt="star" /> */}
               <FavoriteButton
                 drinkName={cocktail.strDrink}
                 drinkImgUrl={cocktail.strDrinkThumb}
               />
               <h2 className="drink-name">{cocktail.strDrink}</h2>
               <button
-                onClick={() => Navigate(`/cocktail/${cocktail.idDrink}`)}
+                onClick={() => navigate(`/cocktail/${cocktail.idDrink}`)}
                 className="see-more-btn"
               >
                 See more
@@ -62,7 +83,7 @@ const CocktailCard = () => {
             </aside>
           </>
         ) : (
-          <div>No cocktail found.</div>
+          <div>No cocktail found.</div> // Om ingen cocktail hittades
         )}
       </section>
     </main>
