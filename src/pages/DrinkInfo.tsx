@@ -30,19 +30,17 @@ const CocktailDetails = () => {
   const Navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch cocktail details by id
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${id}`)
+    // fetch cocktail details by id
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
       .then((response) => response.json())
       .then((data) => {
-        if (data.drinks && data.drinks.length > 0) {
-          setCocktail(data.drinks[0]);
-        }
+        setCocktail(data.drinks[0]);
       });
   }, [id]);
 
   useEffect(() => {
     // fetch cocktail details by name
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${id}`)
       .then((response) => response.json())
       .then((data) => {
         setCocktail(data.drinks[0]);
