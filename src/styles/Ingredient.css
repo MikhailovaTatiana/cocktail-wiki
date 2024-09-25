@@ -140,3 +140,24 @@
     margin-bottom: 1rem;
     height: 70px;
 }
+
+.scroll-desc {
+    margin: 23px;
+    width: 100%;
+    max-height: 9rem;
+    overflow-y: scroll;
+    padding: 5px;
+    padding-top: 1px;
+    outline: 3px dashed #ace4d3;
+    scroll-behavior: smooth;
+}
+
+.scroll-desc::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.scroll-desc::-webkit-scrollbar-thumb {
+    background-color: #ace4d3;
+}
