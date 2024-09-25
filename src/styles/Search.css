@@ -87,7 +87,7 @@ img.star-img {
     border-radius: 4px;
 }
 
-.pagination-container {
+.search-pagination {
     width: 28rem;
     display: flex;
     justify-content: space-between;
@@ -119,3 +119,9 @@ img.star-img {
     width: 3rem;
     height: auto;
 }
+
+.filter-container {
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
