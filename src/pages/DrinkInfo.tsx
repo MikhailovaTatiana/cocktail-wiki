@@ -3,26 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/DrinkInfo.css";
 // import starIcon from '../assets/icons8-star-50.png';
 import FavoriteButton from "../components/FavoriteButton"; // Importera FavoriteButton-komponenten
-interface Cocktail {
-  idDrink: string; // id
-  strDrink: string; // namn
-  strDrinkThumb: string; // bild
-  strCategory: string; // kategori
-  strAlcoholic: string; // alkohol
-  strTags: string; // taggar
-  strInstructions: string; // instruktion
-  strIngredient1: string; // ingrediens
-  strIngredient2: string;
-  strIngredient3: string;
-  strIngredient4: string;
-  strIngredient5: string;
-  strMeasure1: string; // mått
-  strMeasure2: string;
-  strMeasure3: string;
-  strMeasure4: string;
-  strMeasure5: string;
-  strGlass: string; // glas
-}
+import { Cocktail } from "../interfaces";
 
 const CocktailDetails = () => {
   const { id } = useParams<{ id: string }>(); // get cocktail id
@@ -30,8 +11,17 @@ const CocktailDetails = () => {
   const Navigate = useNavigate();
 
   useEffect(() => {
-    // fetch cocktail details by ID
+    // fetch cocktail details by id
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setCocktail(data.drinks[0]);
+      });
+  }, [id]);
+
+  useEffect(() => {
+    // fetch cocktail details by name
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${id}`)
       .then((response) => response.json())
       .then((data) => {
         setCocktail(data.drinks[0]);
@@ -45,11 +35,19 @@ const CocktailDetails = () => {
       <h1 className="info-header">Drink Information</h1>
       <section className="info-card">
         <aside className="info-aside info-left">
-          <h1 className="drink-header" title={cocktail.strDrink}>{cocktail.strDrink}</h1>
+          <h1 className="drink-header" title={cocktail.strDrink}>
+            {cocktail.strDrink}
+          </h1>
           <img className="info-img" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-          <h4>Category: <span className="special">{cocktail.strCategory}</span></h4>
-          <h4>Type: <span className="special">{cocktail.strAlcoholic}</span></h4>
-          <h4>Glass: <span className="special">{cocktail.strGlass}</span></h4>
+          <h4>
+            Category: <span className="special">{cocktail.strCategory}</span>
+          </h4>
+          <h4>
+            Type: <span className="special">{cocktail.strAlcoholic}</span>
+          </h4>
+          <h4>
+            Glass: <span className="special">{cocktail.strGlass}</span>
+          </h4>
         </aside>
 
         <aside className="info-aside info-right">
@@ -62,7 +60,6 @@ const CocktailDetails = () => {
             <h1 className="ingredient-header">Ingredients</h1>
             <ul className="scroll-ingr">
               <li>
-
                 {cocktail.strMeasure1 || ""}&ensp;
                 <Link to={`/ingredient/${cocktail.strIngredient1}`}>
                   <span className="ingredient">{cocktail.strIngredient1 || ""}</span>
@@ -91,7 +88,6 @@ const CocktailDetails = () => {
                 <Link to={`/ingredient/${cocktail.strIngredient5}`}>
                   <span className="ingredient">{cocktail.strIngredient5 || ""}</span>
                 </Link>
-
               </li>
             </ul>
           </section>
