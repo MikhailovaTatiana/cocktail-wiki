@@ -1,5 +1,4 @@
 import "../styles/Navbar.css";
-// import starIcon from "../assets/icons8-star-50.png";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState, useRef} from "react";
 import FavoriteButton from "./FavoriteButton";
@@ -27,6 +26,11 @@ const Navbar: React.FC = () => {
         // Navigate to Search page with search term as a query param
         navigate(`/search?query=${searchTerm}`);
 
+        // Force a page refresh after search with filters
+        setTimeout(() => {
+            window.location.reload();
+        }, 100); // Add a small delay
+
         // Clear input after search
         setSearchTerm("");
         setPlaceholder("🔎");
@@ -41,10 +45,10 @@ const Navbar: React.FC = () => {
     };
 
     const handleBlur = () => {
-      if (searchTerm === "") {
-          setPlaceholder("🔎");
-      }
-  };
+        if (searchTerm === "") {
+            setPlaceholder("🔎");
+        }
+    };
 
     return (
         <nav className="navbar">
@@ -53,13 +57,10 @@ const Navbar: React.FC = () => {
             </Link>
             <ul className="navbar-list">
                 <li>
-                    {/* <Link to="/favorites" className="navbar-link favorite-link">
-                        Favorites{" "}
-                        <img src={starIcon} alt="Star" className="star-icon" />
-                    </Link> */}
                     <Link to="/favorites" className="navbar-link favorite-link">
                         Favorites
-                        <FavoriteButton drinkName="" drinkImgUrl="" /> {/* Add the FavoriteButton component */}
+                        <FavoriteButton drinkName="" drinkImgUrl="" />{" "}
+                        {/* Add the FavoriteButton component */}
                     </Link>
                 </li>
                 <li>
