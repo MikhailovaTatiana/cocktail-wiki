@@ -1,54 +1,68 @@
-import '../styles/Navbar.css';
-import { Link, useNavigate } from 'react-router-dom';
-import React, { useState, useRef } from 'react';
-import FavoriteButton from './FavoriteButton';
+import "../styles/Navbar.css";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useRef } from "react";
+import FavoriteButton from "./FavoriteButton";
 
 const Navbar: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const [placeholder, setPlaceholder] = useState<string>('🔎');
-  const searchValue = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate(); // Using useNavigate hook for navigation
+    const [searchTerm, setSearchTerm] = useState<string>("");
+    const [placeholder, setPlaceholder] = useState<string>("🔎");
+    const searchValue = useRef<HTMLInputElement>(null);
+    const navigate = useNavigate(); // Using useNavigate hook for navigation
 
-  const searchCocktail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
+    const searchCocktail = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
 
-    if (event.target.value.length > 0) {
-      setPlaceholder('');
-    } else {
-      setPlaceholder('🔎');
-    }
-  };
+        if (event.target.value.length > 0) {
+            setPlaceholder("");
+        } else {
+            setPlaceholder("🔎");
+        }
+    };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (searchTerm.trim() === '') return;
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if (searchTerm.trim() === "") return;
 
-    // Navigate to Search page with search term as a query param
-    navigate(`/search?query=${searchTerm}`);
+        // Navigate to Search page with search term as a query param
+        navigate(`/search?query=${searchTerm}`);
 
-    // Clear input after search
-    setSearchTerm('');
-    setPlaceholder('🔎');
+        // Clear input after search
+        setSearchTerm("");
+        setPlaceholder("🔎");
 
-    // Force a page refresh after search with filters
-    setTimeout(() => {
-        window.location.reload();
-    }, 100); // Add a small delay
+        // Force a page refresh after search with filters
+        setTimeout(() => {
+            window.location.reload();
+        }, 100); // Add a small delay
 
-    if (searchValue.current) {
-      searchValue.current.blur(); // Programmatically blur the input
-    }
-  };
+        if (searchValue.current) {
+            searchValue.current.blur(); // Programmatically blur the input
+        }
+    };
 
-  const handleFocus = () => {
-    setPlaceholder('');
-  };
+    const handleFocus = () => {
+        setPlaceholder("");
+    };
 
-  const handleBlur = () => {
-    if (searchTerm === '') {
-      setPlaceholder('🔎');
-    }
-  };
+    // Rensa localStorage vid navigation till tom söksidan
+    const handleBlur = () => {
+        if (searchTerm === "") {
+            setPlaceholder("🔎");
+        }
+    };
+
+    const handleSearchClick = () => {
+        // Check if the user is already on the /search page
+        if (location.pathname === "/search") {
+            // Clear and reload the search page if already on it
+            localStorage.clear();
+            window.location.reload();
+        } else {
+            // Clear and navigate to search page
+            localStorage.clear();
+            navigate("/search");
+        }
+    };
 
     return (
         <nav className="navbar">
@@ -58,14 +72,19 @@ const Navbar: React.FC = () => {
             <ul className="navbar-list">
                 <li>
                     <Link to="/favorites" className="navbar-link favorite-link">
-                        Favorites{" "}
-                        <FavoriteButton drinkName="" drinkImgUrl="" />
+                        Favorites <FavoriteButton drinkName="" drinkImgUrl="" />
                         {/* Add the FavoriteButton component */}
                     </Link>
                 </li>
                 <li>
                     <form className="search-form" onSubmit={handleSubmit}>
-                        Search{" "}
+                        <Link
+                            to={"search"}
+                            className="search-form"
+                            onClick={handleSearchClick}
+                        >
+                            Search{" "}
+                        </Link>
                         <input
                             type="text"
                             placeholder={placeholder}
