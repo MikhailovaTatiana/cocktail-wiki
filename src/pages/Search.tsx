@@ -4,6 +4,7 @@ import LeftArrowIcon from "../assets/left-arrow.png";
 import RightArrowIcon from "../assets/right-arrow.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import FavoriteButton from "../components/FavoriteButton";
+import Footer from "../components/Footer";
 
 export function Search() {
     const [cocktails, setCocktails] = useState<any[]>([]);
@@ -302,6 +303,7 @@ export function Search() {
                     )}
                 </section>
             )}
+            <Footer />
         </main>
     );
 }

@@ -5,12 +5,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
-
+    gap: 1%;
 }
 
 .search-header {
-    margin: 0.5rem 0;
+    margin-top: 0.5rem;
     color: white;
     font-size: 2rem;
     font-weight: 400;
@@ -122,6 +121,5 @@ img.star-img {
 }
 
 .filter-container {
-    margin-bottom: .5rem;
     text-align: center;
 }

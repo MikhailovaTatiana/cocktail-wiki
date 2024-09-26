@@ -1,6 +1,6 @@
 // import starIcon from '../assets/icons8-star-50.png';
 import { useEffect, useState } from 'react';
-import '../styles/Home.css';
+import '../styles/RandomCocktail.css';
 import { useNavigate } from 'react-router-dom';
 import FavoriteButton from './FavoriteButton';
 
@@ -36,7 +36,7 @@ const CocktailCard = () => {
   }, []);
 
   return (
-    <main className="home-main">
+    <section className="home-section">
       <button className="random-btn" onClick={fetchCocktail}>
         Random Cocktail
       </button>
@@ -66,7 +66,7 @@ const CocktailCard = () => {
           <div>No cocktail found.</div>
         )}
       </section>
-    </main>
+    </section>
   );
 };
 

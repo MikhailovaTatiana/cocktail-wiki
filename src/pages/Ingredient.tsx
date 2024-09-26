@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../styles/Ingredient.css";
 import { useEffect, useState } from "react";
 import { Cocktail } from "../interfaces";
+import Footer from "../components/Footer";
 
 export function Ingredient() {
   const { ingredientName } = useParams<{ ingredientName: string }>();
@@ -75,6 +76,7 @@ export function Ingredient() {
           </section>
         </section>
       </section>
+      <Footer />
     </main>
   );
 }
