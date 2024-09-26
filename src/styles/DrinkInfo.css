@@ -88,9 +88,13 @@ a {
     text-decoration: none;
 }
 
+.ingredient {
+    color: rgb(255, 102, 0);
+}
+
 .ingredient:hover {
     cursor: pointer;
-    background-color: #ff975e;
+    text-decoration: underline;
 }
 
 .instructions-container {
