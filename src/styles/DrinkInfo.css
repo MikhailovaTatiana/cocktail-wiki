@@ -88,9 +88,13 @@ a {
     text-decoration: none;
 }
 
+.ingredient {
+    color: rgb(255, 102, 0);
+}
+
 .ingredient:hover {
     cursor: pointer;
-    background-color: #ff975e;
+    text-decoration: underline;
 }
 
 .instructions-container {
@@ -128,7 +132,7 @@ a {
 
 .scroll-instr {
     width: 85%;
-    max-height: 4rem;
+    max-height: 5rem;
     overflow-y: scroll;
     padding: 5px;
     outline: 3px dashed #ace4d3;

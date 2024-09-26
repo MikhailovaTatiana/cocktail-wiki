@@ -48,9 +48,11 @@ export function Ingredient() {
         <aside className="ingredient-aside ingredient-left">
           <section className="ingredient-container">
             <h1 className="description-header">Description</h1>
-            <p className="description-text">
-              {ingredient.strDescription ? ingredient.strDescription : "No description."}
-            </p>
+            <section className="scroll-desc">
+              <p className="description-text">
+                {ingredient.strDescription ? ingredient.strDescription : "No description."}
+              </p>
+            </section>
           </section>
         </aside>
         {/* grid drinks */}
