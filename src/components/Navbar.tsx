@@ -52,16 +52,9 @@ const Navbar: React.FC = () => {
     };
 
     const handleSearchClick = () => {
-        // Check if the user is already on the /search page
-        if (location.pathname === "/search") {
-            // Clear and reload the search page if already on it
-            localStorage.clear();
-            window.location.reload();
-        } else {
-            // Clear and navigate to search page
-            localStorage.clear();
-            navigate("/search");
-        }
+        localStorage.clear();
+        navigate("/search");
+        window.location.reload();
     };
 
     return (

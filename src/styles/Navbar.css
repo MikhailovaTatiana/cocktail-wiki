@@ -3,6 +3,9 @@
     padding: 0.5rem;
     display: flex;
     height: 7vh;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
 }
 
 .navbar-brand {
@@ -29,7 +32,7 @@
 }
 
 .navbar-link {
-    text-decoration: none; 
+    text-decoration: none;
     color: white;
 }
 
