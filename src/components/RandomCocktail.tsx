@@ -1,15 +1,9 @@
 // import starIcon from '../assets/icons8-star-50.png';
-import { useEffect, useState } from 'react';
-import '../styles/RandomCocktail.css';
-import { useNavigate } from 'react-router-dom';
-import FavoriteButton from './FavoriteButton';
-
-// api tag
-interface Cocktail {
-  idDrink: string;
-  strDrink: string;
-  strDrinkThumb: string;
-}
+import { useEffect, useState } from "react";
+import "../styles/RandomCocktail.css";
+import { useNavigate } from "react-router-dom";
+import FavoriteButton from "./FavoriteButton";
+import { Cocktail } from "../interfaces";
 
 const CocktailCard = () => {
   const [cocktail, setCocktail] = useState<Cocktail | null>(null);
@@ -20,11 +14,11 @@ const CocktailCard = () => {
   const fetchCocktail = async () => {
     setLoading(true);
     try {
-      const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php');
+      const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
       const data = await response.json();
       setCocktail(data.drinks[0]);
     } catch (error) {
-      console.error('Error fetching the cocktail:', error);
+      console.error("Error fetching the cocktail:", error);
     } finally {
       setLoading(false);
     }

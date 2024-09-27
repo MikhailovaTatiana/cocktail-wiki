@@ -82,7 +82,7 @@
 } */
 
 .ingredient-image {
-    width: 50%;
+    width: 90%;
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
@@ -116,7 +116,7 @@
 }
 
 .drink-image {
-    width: 50%;
+    width: 100%;
     border-radius: 8px;
 }
 
@@ -154,7 +154,7 @@
 .scroll-desc {
     margin: 23px;
     width: 100%;
-    max-height: 10rem;
+    max-height: 14rem;
     overflow-y: scroll;
     padding: 5px;
     padding-top: 1px;
