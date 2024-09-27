@@ -30,11 +30,6 @@ const Navbar: React.FC = () => {
         setSearchTerm("");
         setPlaceholder("🔎");
 
-        // Force a page refresh after search with filters
-        setTimeout(() => {
-            window.location.reload();
-        }, 100); // Add a small delay
-
         if (searchValue.current) {
             searchValue.current.blur(); // Programmatically blur the input
         }
@@ -54,7 +49,6 @@ const Navbar: React.FC = () => {
     const handleSearchClick = () => {
         localStorage.clear();
         navigate("/search");
-        window.location.reload();
     };
 
     return (

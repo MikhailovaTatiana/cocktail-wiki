@@ -1,8 +1,7 @@
 import "../styles/Favorites.css";
 import { useFavorites } from "../context/FavoritesContext";
-import LeftArrowIcon from "../assets/left-arrow.png";
-import RightArrowIcon from "../assets/right-arrow.png";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const Favorites = () => {
   const { favorites, removeFavorite } = useFavorites(); // Hämta favoriter och removeFavorite från Context
@@ -17,19 +16,6 @@ const Favorites = () => {
           <p className="emptyMessage">Du har inga sparade favoriter</p>
         ) : (
           <>
-            <div className="pagination-container">
-              <div className="arrow-placeholder">
-                <button className="arrow-btn" disabled>
-                  <img src={LeftArrowIcon} alt="Previous Page" />
-                </button>
-              </div>
-              <span className="pages">Page 1 of 3</span>
-              <div className="arrow-placeholder">
-                <button className="arrow-btn" disabled>
-                  <img src={RightArrowIcon} alt="Next Page" />
-                </button>
-              </div>
-            </div>
             <div className="cocktail-grid">
               {favorites.map((cocktail, index) => (
                 <div className="cocktail-card" key={index}>
@@ -46,6 +32,7 @@ const Favorites = () => {
           </>
         )}
       </div>
+      <Footer />
     </main>
   );
 };

@@ -29,7 +29,7 @@
 .instructions-header {
     font-size: 2rem;
     font-weight: normal;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .info-card {
@@ -43,18 +43,17 @@
 }
 
 .info-aside {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .info-right {
-    flex: 1;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .info-left {
-    flex: 1;
     justify-content: space-around;
 }
 
@@ -63,14 +62,6 @@
     aspect-ratio: 1;
     object-fit: cover;
     object-position: center;
-}
-
-.star-in-info {
-    margin-top: 1rem;
-    margin-right: 1rem;
-    align-self: flex-end;
-    width: 30px;
-    cursor: pointer;
 }
 
 ul {
