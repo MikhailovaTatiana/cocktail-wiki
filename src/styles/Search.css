@@ -123,3 +123,45 @@ img.star-img {
 .filter-container {
     text-align: center;
 }
+
+/* För container dropdown */
+.filter-container {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.filter-container select {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #f89169; 
+    background-color: #aae6d6; 
+    color: #333;
+    width: 220px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+
+.filter-container select:focus {
+    border-color: #800f82;
+    box-shadow: 0 4px 10px rgba(128, 15, 130, 0.4); 
+}
+
+
+.filter-container option {
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    background-color:#bfceb8;
+}
+
+/* Optgroup label styling */
+.filter-container optgroup {
+    font-weight: bold;
+    color: #800f82; 
+}
