@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/Ingredient.css";
 import { useEffect, useState } from "react";
 import { Cocktail } from "../interfaces";
@@ -66,8 +66,10 @@ export function Ingredient() {
             {drinks.length > 0 ? (
               drinks.map((drink) => (
                 <article className="drink-card">
-                  <img className="drink-image" src={drink.strDrinkThumb} alt={drink.strDrink} />
-                  <p className="drink-card-name">{drink.strDrink}</p>
+                  <Link to={`/drinkinfo/${drink.idDrink}`}>
+                    <img className="drink-image" src={drink.strDrinkThumb} alt={drink.strDrink} />
+                    <p className="drink-card-name">{drink.strDrink}</p>
+                  </Link>
                 </article>
               ))
             ) : (
