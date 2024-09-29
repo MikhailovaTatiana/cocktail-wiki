@@ -7,6 +7,7 @@ import { Cocktail } from "../interfaces";
 
 const CocktailCard = () => {
   const [cocktail, setCocktail] = useState<Cocktail | null>(null);
+  const [nextCocktail, setNextCocktail] = useState<Cocktail | null>(null); // Nästa cocktail som pre-fetchas
   const [loading, setLoading] = useState<boolean>(true);
   const Navigate = useNavigate(); // direct to another page
 
@@ -16,7 +17,7 @@ const CocktailCard = () => {
     try {
       const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
       const data = await response.json();
-      setCocktail(data.drinks[0]);
+      setCocktail(data.drinks[0]); // Sätt den hämtade cocktailen till nuvarande cocktail
     } catch (error) {
       console.error("Error fetching the cocktail:", error);
     } finally {
@@ -24,14 +25,35 @@ const CocktailCard = () => {
     }
   };
 
+  // Ny funktion: Pre-fetchar nästa cocktail i bakgrunden
+  const preFetchNextCocktail = async () => {
+    try {
+      const response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php");
+      const data = await response.json();
+      setNextCocktail(data.drinks[0]); // Sparar den förhämtade cocktailen
+    } catch (error) {
+      console.error("Error pre-fetching the next cocktail:", error);
+    }
+  };
+
   // Fetch a cocktail when the component mounts
   useEffect(() => {
     fetchCocktail();
+    preFetchNextCocktail(); // Pre-fetch nästa cocktail för snabbare laddning
   }, []);
+
+  const handleRandomClick = () => {
+    if (nextCocktail) {
+      setCocktail(nextCocktail); // Använd den förhämtade cocktailen
+      preFetchNextCocktail(); // Pre-fetch nästa igen
+    } else {
+      fetchCocktail(); // Om pre-fetch misslyckas, fallback till vanlig fetch
+    }
+  };
 
   return (
     <section className="home-section">
-      <button className="random-btn" onClick={fetchCocktail}>
+      <button className="random-btn" onClick={handleRandomClick}>
         Random Cocktail
       </button>
       <section className="card">
